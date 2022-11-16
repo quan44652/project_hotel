@@ -22,13 +22,26 @@ html {
 }
 
 
+
 .btn {
     outline: none;
     border: none;
     font-size: 20px;
     padding: 14px 32px;
-    background-color: #64688C;
+    background-color: #FFF;
     color: #fff;
+    border-radius: 24px;
+    font-weight: 300;
+    box-shadow: 1px 1px 1px 10px #fff;
+}
+
+.btn2 {
+    outline: none;
+    border: none;
+    font-size: 16px;
+    padding: 14px 32px;
+    background-color: #FFF;
+    color: #000;
     border-radius: 24px;
     font-weight: 300;
     box-shadow: 1px 1px 1px 10px #fff;
@@ -38,17 +51,17 @@ html {
     color: rgba(255, 255, 255, 0.5);
 }
 
-.btn span i{
+.btn span i {
     font-size: 13px;
 }
+
 .col-3 {
     width: 25%;
     padding: 0 15px;
 }
 
 .col-6 {
-    width: 45%;
-    padding: 0 15px;
+    width: 50%;
 }
 
 .col-2 {
@@ -68,7 +81,7 @@ html {
 }
 
 .btn:hover {
-    background-color: #64688cbe;
+    background-color: #33a7ffa3;
     transition: 0.5s ease;
 }
 
@@ -137,7 +150,7 @@ html {
 .modal span {
     font-size: 20px;
     padding: 6px 24px;
-    background-color: #64688C;
+    background-color: #33A5FF;
     color: #fff;
     border-radius: 24px;
     font-weight: 400;
@@ -160,7 +173,7 @@ html {
     left: 0;
     right: 0;
     background-color: #64688c52;
-    
+
 }
 
 .banner__content {
@@ -203,6 +216,7 @@ html {
 
 .seaarch_room .btn {
     padding: 6px 16px;
+    background-color: #33A5FF;
 }
 
 .seaarch_room form {
@@ -233,7 +247,7 @@ option {
     padding-left: 12px;
     outline: none;
     border: none;
-    background-color: #E9F7F8;
+    background-color: #f2ffff;
     margin-left: 12px;
     border-radius: 12px;
     font-size: 14px;
@@ -265,7 +279,7 @@ option {
     align-items: center;
     justify-content: center;
     height: 141px;
-    background-color: #E9F7F8;
+    background-color: #f2ffff;
     margin: 0 -30px;
 }
 
@@ -279,7 +293,7 @@ option {
 .about {
     padding: 180px 140px;
     margin-top: 10px;
-    background-color: #E9F7F8;
+    background-color: #f2ffff;
 }
 
 
@@ -323,8 +337,12 @@ option {
 /* Place */
 
 .place {
-    background-color: #E9F7F8;
+    background-color: #f2ffff;
     padding-bottom: 172px;
+}
+
+.place .btn {
+    background-color: #33A5FF;
 }
 
 .place-title {
@@ -455,10 +473,12 @@ option {
 
 .room-img {
     padding: 12px;
+    height: 252px;
 }
 
 .room-img img {
     width: 100%;
+    height: 100%;
     border-radius: 6px;
 }
 
@@ -591,6 +611,7 @@ option {
     font-size: 15px;
     font-weight: 400;
     box-shadow: none;
+    background-color: #33A5FF;
 }
 
 .feedback-img h1 {
@@ -689,9 +710,8 @@ option {
 }
 
 .ins-img {
-   padding: 6px;
+    padding: 6px;
     border-radius: 6px;
-   
 }
 
 .ins-img img {
@@ -701,7 +721,7 @@ option {
 }
 
 .cat-item {
-margin-right: 12px;
+    margin-right: 12px;
     box-shadow: none;
 }
 
@@ -709,7 +729,167 @@ margin-right: 12px;
     margin-top: 200px;
     display: flex;
     align-items: center;
-    margin-left: 50%;
-    transform: translateX(-50%);
+    justify-content: center;
+    list-style: none;
+
 }
 
+.category a {
+    text-decoration: none;
+}
+
+.category .active {
+    background-color: #33A5FF;
+    color: #fff;
+}
+
+/* modal */
+.modal-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #a1a1a14f;
+
+}
+
+.auth_form__container {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    padding: 0px 40px;
+    background-color: #fff;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    border-radius: 4px;
+}
+
+.auth_form__container h4 {
+    font-size: 22px;
+    text-align: center;
+    margin: 32px 0 24px 0;
+
+}
+
+.auth_form__container p {
+    font-size: 16px;
+    opacity: 0.8;
+    text-align: center;
+    padding-bottom: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-lable {
+    font-size: 16px;
+}
+
+.form-group input {
+    width: 100%;
+    height: 36px;
+    outline: none;
+    font-size: 15px;
+    padding-left: 18px;
+    margin-top: 6px;
+    border-radius: 3px;
+    border: 1px solid #00BB00;
+}
+
+.invalid input {
+    border: 1px solid #DC143C;
+}
+
+.form-message {
+    font-size: 14px;
+    color: red;
+    margin-bottom: 8px;
+}
+
+
+.modal-section .btn3 {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    outline: none;
+    border: none;
+    font-weight: 600;
+    font-size: 14px;
+    background-color: #3ABDC1;
+    color: #fff;
+    margin: 24px 0;
+}
+
+.modal_overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.auth_form__container span {
+    cursor: pointer;
+}
+
+.close {
+    position: absolute;
+    font-size: 16px;
+    top: 100px;
+    right: 24px;
+    padding:6px 12px;
+    background-color: #fff;
+    border-radius: 2px;
+}
+
+.close:hover {
+    color: #FFF;
+    background-color: red;
+}
+
+.form_hiden {
+    display: none;
+}
+
+.room-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+
+.room-main img {
+    width: 80%;
+   
+}
+
+.room-small {
+    display: flex;
+    align-items: center;
+}
+
+.room-small--item img {
+    width: 100%;
+    height: 96px;
+    padding: 12px;
+
+}
+
+.roomDetail {
+    display: flex;
+}
+
+.sign-room--detail .room-content {
+    padding: 0 24px;
+}
+
+.sign-room--detail .seaarch_room form{
+    flex-direction: column;
+}
