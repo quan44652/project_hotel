@@ -1,21 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="../public/admin.css">
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-            integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-            crossorigin="anonymous" referrerpolicy="no-referrer" />
-    </head>
+<?php require ('../header.php') ?> 
     <body>
         <div class="app">
             <header>
                 <ul class="navnar">
-                    <li><a class="navbar__link" href="">
+                    <li><a class="navbar__link " href="">
                             <span class="navnar_icon"><i class="fa-solid
                                     fa-house"></i></span>
                             <span class="navnar_title">Home</span>
@@ -25,12 +13,12 @@
                                     fa-user"></i></span>
                             <span class="navnar_title">User</span>
                         </a></li>
-                    <li><a class="navbar__link" href="">
+                    <li><a class="navbar__link " href="">
                             <span class="navnar_icon"><i class="fa-solid
                                     fa-briefcase"></i></span>
                             <span class="navnar_title">Room</span>
                         </a></li>
-                    <li><a class="navbar__link" href="">
+                    <li><a class="navbar__link " href="">
                             <span class="navnar_icon"><i class="fa-solid
                                     fa-list"></i></span>
                             <span class="navnar_title">Kind of room</span>
@@ -40,7 +28,7 @@
                                     fa-book"></i></span>
                             <span class="navnar_title">Booking</span>
                         </a></li>
-                    <li><a class="navbar__link" href="">
+                    <li><a class="navbar__link active" href="">
                             <span class="navnar_icon"><i class="fa-solid
                                     fa-comment"></i></span>
                             <span class="navnar_title">Comment</span>
@@ -52,9 +40,35 @@
                         </a></li>
                 </ul>
             </header>
-            <section class="home">
-                <h1>Anh Quân</h1>
+            <section class=" layout">
+              <h1>Quản lí bình luận</h1>
+              <table border="1">
+                <thead>
+                    <tr>
+                        <td width="100px">Comment ID</td>
+                        <td width="150px">User name</td>
+                        <td width="150px">Room</td>
+                        <td width="500px">Content</td>
+                        <td width="200px">Time</td>
+                        <td width="200px">ACtive</td>
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>quanna</td>
+                        <td>quanna</td>
+                        <td>quanna</td>
+                        <td>quanna</td>
+                        <td><button class="btn delete">Xóa</button></td>
+                    </tr>
+
+                 
+                </tbody>
+              </table>
+    
             </section>
         </div>
     </body>
-</html>
+    <?php require ('../footer.php') ?>
