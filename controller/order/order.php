@@ -46,12 +46,12 @@
                 <thead>
                     <tr>
                         <td width="100px">Order ID</td>
-                        <td width="200px">User name</td>
-                        <td width="200px">Room</td>
-                        <td width="200px">Start date</td>
-                        <td width="200px">End date</td>
-                        <td width="200px">Phone</td>
-                        <td width="200px">ACtive</td>
+                        <td width="180px">User name</td>
+                        <td width="180px">Room</td>
+                        <td width="180px">Start date</td>
+                        <td width="180px">End date</td>
+                        <td width="180px">Phone</td>
+                        <td width="300px">ACtive</td>
                        
                     </tr>
                 </thead>
@@ -63,7 +63,7 @@
                         <td>quanna</td>
                         <td>quanna</td>
                         <td>quanna</td>
-                        <td><button class="btn delete">Xóa</button></td>
+                        <td><a href=""><button class="btn delete">Xóa</button></a> | <a href=""><button class="btn delete">Xóa</button></a></td>
                     </tr>
 
                  
