@@ -3,7 +3,7 @@
         <div class="app">
             <header>
                 <ul class="navnar">
-                    <li><a class="navbar__link active " href="">
+                    <li><a class="navbar__link active" href=" ">
                             <span class="navnar_icon"><i class="fa-solid
                                     fa-house"></i></span>
                             <span class="navnar_title">Home</span>
