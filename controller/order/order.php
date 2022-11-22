@@ -65,8 +65,6 @@
                         <td>quanna</td>
                         <td><a href=""><button class="btn update">CheckIn</button></a> | <a href=""><button class="btn delete">CheckOut</button></a></td>
                     </tr>
-
-                 
                 </tbody>
               </table>
     
