@@ -63,7 +63,7 @@
                         <td>quanna</td>
                         <td>quanna</td>
                         <td>quanna</td>
-                        <td><a href=""><button class="btn delete">Xóa</button></a> | <a href=""><button class="btn delete">Xóa</button></a></td>
+                        <td><a href=""><button class="btn delete">Checkout</button></a> | <a href=""><button class="btn delete">Checkin</button></a></td>
                     </tr>
 
                  
