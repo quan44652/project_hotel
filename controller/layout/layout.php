@@ -41,7 +41,7 @@
                 </ul>
             </header>
             <section class=" layout">
-              <h1>Trang quản lí website</h1>
+              <h1>Trang quản lí website .</h1>
             </section>
         </div>
     </body>
