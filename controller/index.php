@@ -1,59 +1,151 @@
 <?php
-include ('../controller/header.php');
-include ('../model/pdo.php');
-    if(isset($_GET['act'])) {
-        $act = $_GET['act'];
-        switch ($act) {
-            case 'cate':
-                $sql = "SELECT * from categories";
-                $listCate = pdo_query($sql);
-                require "../controller/category/cat.php";
-                break;
-            case 'add_cate':
-                if(isset($_POST['submit'])) {
-                    $name = $_POST['cat_name'];
-                    $sql = "INSERT into categories (cate_name) value ('$name')";
-                    pdo_execute($sql);
-                    $messager = "Thêm thành công";
-                }
-                require "../controller/category/add.php";
-                break;
-            case 'room':
-                $sql = "SELECT * from rooms";
-                $listRoom = pdo_query($sql);
-                require "../controller/room/room.php";
-                break;
-            case 'add_room':
-                    if(isset($_POST['submit'])) {
-                        $name = $_POST['name'];
-                        $price = $_POST['price'];
-                        $desc = $_POST['desc'];
-                        $cate_id = $_POST['cate_id'];
-                        $target_dir = "./room/img/";
-                        $image = $target_dir . basename($_FILES["image"]["name"]);
-                        move_uploaded_file($_FILES["image"]["tmp_name"], $image);
-                        $sql = "INSERT INTO `rooms` (`cate_id`, `price`, `name`, `description`, `image`)
+include('../controller/header.php');
+include('../model/pdo.php');
+if (isset($_GET['act'])) {
+    $act = $_GET['act'];
+    switch ($act) {
+        case 'cate':
+            $sql = "SELECT * from categories";
+            $listCate = pdo_query($sql);
+            require "../controller/category/cat.php";
+            break;
+        case 'add_cate':
+            if (isset($_POST['submit'])) {
+                $name = $_POST['cat_name'];
+                $sql = "INSERT into categories (cate_name) value ('$name')";
+                pdo_execute($sql);
+                $messager = "Thêm thành công";
+            }
+            require "../controller/category/add.php";
+            break;
+        case 'fix_cate':
+            if (isset($_GET['id'])) {
+                $sql = "SELECT * from categories where cate_id = '{$_GET['id']}'";
+                $cate = pdo_query_one($sql);
+            }
+            require "../controller/category/update.php";
+            break;
+        case 'update_cate':
+            if (isset($_POST['submit'])) {
+                $cate_name = $_POST['cate_name'];
+                $id = $_POST['id'];
+                $sql = "UPDATE categories set cate_name = '$cate_name' where cate_id = '$id'";
+                pdo_execute($sql);
+                $messager = "Sửa thành công";
+            }
+            $sql = "SELECT * from categories";
+            $listCate = pdo_query($sql);
+            require "../controller/category/update.php";
+            break;
+        case 'delete_cate':
+            if (isset($_GET['id'])) {
+                $sql = "DELETE FROM categories WHERE cate_id = '{$_GET['id']}'";
+                pdo_execute($sql);
+            }
+            $sql = "SELECT * from categories";
+            $listCate = pdo_query($sql);
+            require "../controller/category/cat.php";
+            break;
+        case 'room':
+            $sql = "SELECT `rooms`.`room_id` as `room_id` ,`rooms`.`roomImage_id` as `roomImage_id` ,`rooms`.`price` as `price` , `rooms`.`name` as `name`, `rooms`.`description` as `description`, `rooms`.`image` as `image`, `categories`.`cate_name` as `cate_name` from `rooms` , `categories` where `categories`.`cate_id` = `rooms`.`cate_id` ";
+            $listRoom = pdo_query($sql);
+            require "../controller/room/room.php";
+            break;
+        case 'add_room':
+            if (isset($_POST['submit'])) {
+                $name = $_POST['name'];
+                $price = $_POST['price'];
+                $desc = $_POST['desc'];
+                $cate_id = $_POST['cate_id'];
+                $target_dir = "./room/img/";
+                $image = $target_dir . basename($_FILES["image"]["name"]);
+                move_uploaded_file($_FILES["image"]["tmp_name"], $image);
+                $sql = "INSERT INTO `rooms` (`cate_id`, `price`, `name`, `description`, `image`)
                          VALUES ('$cate_id', '$price', '{$name}', '$desc', '$image')";
-                        pdo_execute($sql);
-                        $messager = "Thêm thành công";
-                    }
-                    $sql = "SELECT * from categories";
-                    $listCate = pdo_query($sql);
-                    require "../controller/room/add.php";
-                    break;
-            case 'order':
-                require "../controller/order/order.php";
-                break;
-            case 'comment':
-                require "../controller/comment/comment.php";
-                break;
-            case 'staff':
-                require "../controller/staff/staff.php";
-                break;
-            case 'user':
-                require "../controller//user/user.php";
-                break;
-        }
+                pdo_execute($sql);
+                $messager = "Thêm thành công";
+            }
+            $sql = "SELECT * from categories";
+            $listCate = pdo_query($sql);
+            require "../controller/room/add.php";
+            break;
+        case 'delete_room':
+            if (isset($_GET['id'])) {
+                $sql = "DELETE FROM rooms WHERE room_id = '{$_GET['id']}'";
+                pdo_execute($sql);
+            }
+            $sql = "SELECT `rooms`.`room_id` as `room_id` ,`rooms`.`price` as `price` , `rooms`.`name` as `name`, `rooms`.`description` as `description`, `rooms`.`image` as `image`, `categories`.`cate_name` as `cate_name` from `rooms` , `categories` where `categories`.`cate_id` = `rooms`.`cate_id` ";
+            $listRoom = pdo_query($sql);
+            require "../controller/room/room.php";
+            break;
+        case 'order':
+            $sql = "SELECT `booking`.`booking_id` as `booking_id`,`booking_detail`.`room_id` as `room_id`,`booking_detail`.`start_date` as `start_date`,`booking_detail`.`end_date` as `end_date`,`user`.`user_name` as `user_name`,`user`.`phone` as `phone` from `booking_detail` , `booking` , `user` where `booking_detail`.`booking_id` = `booking`.`booking_id` and `user`.`user_id` = `booking`.`user_id`";
+            $listbook = pdo_query($sql);
+            require "../controller/order/order.php";
+            break;
+        case 'comment':
+            $sql = "SELECT `comment`.`content` as  `content`,`comment`.`id` as  `id`, `comment`.`time` as  `time`,`rooms`.`name` as  `name`,`user`.`user_name` as `user_name` from `comment` , `user` , `rooms` where `comment`.`user_id` = `user`.`user_id` and `comment`.`room_id` = `rooms`.`room_id`  ORDER BY `id` DESC";
+            $listComment = pdo_query($sql);
+            require "../controller/comment/comment.php";
+            break;
+        case 'staff':
+            $sql = "SELECT * from user";
+            $listUser = pdo_query($sql);
+            require "../controller/staff/staff.php";
+            break;
+        case 'detete_staff':
+            if (isset($_GET['id'])) {
+                $sql = "DELETE FROM `user` WHERE `user_id` = '{$_GET['id']}'";
+                pdo_execute($sql);
+            }
+            $sql = "SELECT * from user";
+            $listUser = pdo_query($sql);
+            require "../controller/staff/staff.php";
+            break;
+        case 'user':
+            $sql = "SELECT * from user";
+            $listUser = pdo_query($sql);
+            require "../controller/user/user.php";
+            break;
+        case 'detete_user':
+            echo 1231231231313;
+            if (isset($_GET['id'])) {
+                $sql = "DELETE FROM `user` WHERE `user_id` = '{$_GET['id']}'";
+                pdo_execute($sql);
+            }
+            $sql = "SELECT * from user";
+            $listUser = pdo_query($sql);
+            require "../controller/user/user.php";
+            break;
+        case 'image':
+            // $sql = "SELECT  `room_image`.`image1` as `image1`,`room_image`.`image2` as `image2`, `room_image`.`image3` as `image3`,`room_image`.`image4` as `image4`,`room_image`.`image5` as `image5`,`rooms`.`room_id` as `room_id` from `rooms` , `room_image` where `room_image`.`roomImage_id` = `rooms`.`roomImage_id` ";
+            $sql = "SELECT * from room_image";
+            $listImage = pdo_query($sql);
+            require "../controller/image_room/image.php";
+            break;
+        case 'add_img':
+            if (isset($_POST['submit'])) {
+                $target_dir = "./image_room/img/";
+                $image1 = $target_dir . basename($_FILES["image1"]["name"]);
+                move_uploaded_file($_FILES["image1"]["tmp_name"], $image1);
+                $image2 = $target_dir . basename($_FILES["image2"]["name"]);
+                move_uploaded_file($_FILES["image2"]["tmp_name"], $image2);
+                $image3 = $target_dir . basename($_FILES["image3"]["name"]);
+                move_uploaded_file($_FILES["image3"]["tmp_name"], $image3);
+                $image4 = $target_dir . basename($_FILES["image4"]["name"]);
+                move_uploaded_file($_FILES["image4"]["tmp_name"], $image4);
+                $image5 = $target_dir . basename($_FILES["image5"]["name"]);
+                move_uploaded_file($_FILES["image5"]["tmp_name"], $image5);
+                $sql = "INSERT INTO `room_image` (`image1`, `image2`, `image3`, `image4`,`image5`)
+                         VALUES ('$image1', '{$image2}', '$image3', '$image4','{$image5}')";
+                pdo_execute($sql);
+                $messager = "Thêm thành công";
+            }
+            $sql = "SELECT * from rooms where roomImage_id = '{$_GET['id']}'";
+            $listRoom = pdo_query($sql);
+            require "../controller/image_room/add.php";
+            break;
     }
-include ('../controller/footer.php')
-?>
+}
+include('../controller/footer.php')
+    ?>

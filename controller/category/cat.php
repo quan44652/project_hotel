@@ -18,7 +18,7 @@
                       <tr>
                         <td><?php echo $cate['cate_id'] ?></td>
                         <td><?php echo $cate['cate_name'] ?></td>
-                        <td><button class="btn update">Sửa</button> | <button class="btn delete">Xóa</button></td>
+                        <td><a href="../controller/index.php?act=fix_cate&id=<?php echo $cate['cate_id'] ?>"><button class="btn update">Sửa</button></a> | <a href="../controller/index.php?act=delete_cate&id=<?php echo $cate['cate_id'] ?>"><button class="btn delete">Xóa</button></a></td>
                     </tr>
                     <?php
                   }
