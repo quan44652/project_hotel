@@ -521,6 +521,7 @@ option {
     overflow: hidden;
     font-weight: 400;
     word-spacing: 2px;
+    height: 65px;
 }
 
 .room-content .room-book {

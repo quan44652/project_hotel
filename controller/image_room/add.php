@@ -1,45 +1,35 @@
 
             <section class=" layout">
               <h1>Thêm Hình ảnh</h1>
-          
+              <span><?php if(!empty($messager)) echo $messager ?></span>
                    <div class="form_container">
-                    <form action="">
+                    <form action="" method="POST" enctype="multipart/form-data">
                         <div class="form-group ">
-                            <label for="" class="form-lable">Chọn phòng</label>
-                           <select name="" id="">
-                            <option value="">Chọn phòng</option>
-                            <option value="">Chọn phòng</option>
-                            <option value="">Chọn phòng</option>
-                            <option value="">Chọn phòng</option>
-                           </select>
+                            <label for="" class="form-lable">Hình ảnh</label>
+                            <input name="image1" id="fullname" type="file">
                             <span class="form-message"></span>
                         </div>
                         <div class="form-group ">
                             <label for="" class="form-lable">Hình ảnh</label>
-                            <input id="fullname" type="file">
+                            <input name="image2" id="fullname" type="file">
                             <span class="form-message"></span>
                         </div>
                         <div class="form-group ">
                             <label for="" class="form-lable">Hình ảnh</label>
-                            <input id="fullname" type="file">
+                            <input name="image3" id="fullname" type="file">
                             <span class="form-message"></span>
                         </div>
                         <div class="form-group ">
                             <label for="" class="form-lable">Hình ảnh</label>
-                            <input id="fullname" type="file">
+                            <input name="image4" id="fullname" type="file">
                             <span class="form-message"></span>
                         </div>
                         <div class="form-group ">
                             <label for="" class="form-lable">Hình ảnh</label>
-                            <input id="fullname" type="file">
+                            <input name="image5" id="fullname" type="file">
                             <span class="form-message"></span>
                         </div>
-                        <div class="form-group ">
-                            <label for="" class="form-lable">Hình ảnh</label>
-                            <input id="fullname" type="file">
-                            <span class="form-message"></span>
-                        </div>
-                        <button class="btn">Submit</button>
+                        <button type="submit" name="submit" class="btn">Submit</button>
                     </form>
                    </div>
             </section>
