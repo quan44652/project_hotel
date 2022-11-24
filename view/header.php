@@ -20,7 +20,7 @@
                     <img src="../public/logo/logo.svg" alt="">
                 </div>
                 <ul class="list_menu">
-                    <li><a href="./layout.html">
+                    <li><a href="./model.php?act=home">
                             <span class="line"></span>
                             Home</a></li>
                     <li><a href="./about.html">
