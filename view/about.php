@@ -1,62 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="../public/layout.css">
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-            integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-            crossorigin="anonymous" referrerpolicy="no-referrer" />
-    </head>
-
-    <body>
-        <div class="container">
-            <header class="header">
-                <div class="logo">
-                    <img src="../public/logo/logo.svg" alt="">
-                </div>
-                <ul class="list_menu">
-                    <li><a href="./layout.html">
-                            <span class="line"></span>
-                            Home</a></li>
-                    <li><a href="./about.html">
-                            <span class="line"></span>
-                            About</a></li>
-                    <li><a href="./rooms.html">
-                            <span class="line"></span>
-                            Rooms</a></li>
-                    <li><a href="./blog.html">
-                            <span class="line"></span>
-                            Blog</a></li>
-                    <li><a href="./contact.html">
-                            <span class="line"></span>
-                            Contact</a></li>
-                    <li><a href="./booking.html">
-                            <span class="line"></span>
-                            Booking</a></li>
-                </ul>
-                <div class="modal ">
-                  <div class="modal_item hidden">
-                    <span id="signIn2" class="btn">Sign In</span>
-                    <span id="signUp2" class="btn">Sign Up</span>
-                  </div>
-                  <div class="modal_item">
-                    <div class="modal_img">
-                        <img src="../public/feedback/faces-1-scaled.jpg" width="50px" height="50px" alt="">
+            <section class="about">
+                <div class="about-cart">
+                    <div class="row">
+                        <div class="about-img col-6">
+                            <img src="../public/about/about-t1.jpg" alt="">
+                        </div>
+                        <div class="about-content col-6">
+                            <h2 class="about-cart--title">
+                                We have 17+ years of Experience
+                            </h2>
+                            <p>Consectetur adipisicing elit. Nihil, illum
+                                voluptate eveniet ex fugit ea delectus, sed
+                                voluptatem. Laborum accusantium libero commodi
+                                id officiis itaque esse adipisci, necessitatibus
+                                asperiores, illo odio.</p>
+                            <button class="btn">More About Us</button>
+                        </div>
+                        <div class="about-content col-6">
+                            <h2>Start your Amazing Adventure!</h2>
+                            <p>Consectetur adipisicing elit. Nihil, illum
+                                voluptate eveniet ex fugit ea delectus, sed
+                                voluptatem. Laborum accusantium libero commodi
+                                id officiis itaque esse adipisci, necessitatibus
+                                asperiores, illo odio.</p>
+                            <button class="btn">Chose A Room</button>
+                        </div>
+                        <div class="about-img col-6">
+                            <img src="../public/about/about-t2.jpg" alt="">
+                        </div>
                     </div>
-                    <ul class="modal_content">
-                        <li><a href="">Thông tin tài khoản</a></li>
-                        <li><a href="">Đổi mật khẩu</a></li>
-                        <li><a href="">Đăng xuất</a></li>
-                    </ul>
-                  </div>
                 </div>
+            </section>
 
-            </header>
 
             <section class="place section-m1">
                 <div class="place-title">
@@ -756,176 +731,4 @@
 
                     </div>
                 </div>
-            </section>
-            <footer class="footer">
-                <div class="row">
-                    <div class="col-4">
-                        <div class="logo footer-title">
-                            <img src="../public/logo/logo-w.svg" alt="">
-                        </div>
-                        <p>Sequi dolores ratione eos eveniet provident soluta.
-                            Omnis nesciunt sit eos at, eius voluptatum rem
-                            corporis. Doloremque labore assumenda explicabo
-                            velit illo, soluta, inventore hic.</p>
-                        <span class="footer-link">
-                            <i class="fa-brands fa-facebook"></i>
-                            <i class="fa-brands fa-twitter"></i>
-                            <i class="fa-brands fa-instagram"></i>
-                            <i class="fa-brands fa-linkedin-in"></i>
-                        </span>
-                    </div>
-                    <div class="col-2 ">
-                        <div class="footer-title">
-                            <h4>Menu</h4>
-                        </div>
-                        <ul>
-                            <li>Home</li>
-                            <li>About Us</li>
-                            <li>Rooms</li>
-                            <li>Blog</li>
-                            <li>Contact Us</li>
-                        </ul>
-                    </div>
-                    <div class="col-2 ">
-                        <div class="footer-title">
-                            <h4>Meet Kinsley</h4>
-                        </div>
-                        <ul>
-                            <li>Gallery</li>
-                            <li>Restaurant</li>
-                        </ul>
-                    </div>
-                    <div class="col-4">
-                        <div class="footer-title">
-                            <h4>Instagram</h4>
-                        </div>
-                        <div class="row">
-                            <div class="ins-img col-4">
-                                <img src="../public/about/about-6.jpg" alt="">
-                            </div>
-                            <div class="ins-img col-4">
-                                <img src="../public/about/about-2.jpg" alt="">
-                            </div>
-                            <div class="ins-img col-4">
-                                <img src="../public/about/about-3.jpg" alt="">
-                            </div>
-                            <div class="ins-img col-4">
-                                <img src="../public/about/about-4.jpg" alt="">
-                            </div>
-                            <div class="ins-img col-4">
-                                <img src="../public/about/about-5.jpg" alt="">
-                            </div>
-                            <div class="ins-img col-4">
-                                <img src="../public/about/about-7.jpg" alt="">
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </footer>
-
-            <div class="modal-section form_hiden">
-              <div class="modal_overlay">
-                <div id="signUp" class="auth_form form_hiden">
-                    <div class="auth_form__container">
-                        <h4>Đăng ký tài khoản</h4>
-                        <p>Bạn đã có tài khoản? <span class="signIn3">Đăng nhập</span></p>
-                        <form action="">
-                            <div class="form-group">
-                                <label for="" class="form-lable">Tên đầy đủ</label>
-                                <input id="fullname" type="text">
-                                <span class="form-message"></span>
-                            </div>
-                            <div class="form-group ">
-                                <label for="" class="form-lable">Email</label>
-                                <input id="fullname" type="text">
-                                <span class="form-message"></span>
-                            </div>
-                            <div class="form-group ">
-                                <label for="" class="form-lable">Mật khẩu</label>
-                                <input id="fullname" type="text">
-                                <span class="form-message"></span>
-                            </div>
-                            <div class="form-group ">
-                                <label for="" class="form-lable">Nhập lại mật khẩu</label>
-                                <input id="fullname" type="text">
-                                <span class="form-message"></span>
-                            </div>
-                            <button class="btn3">Đăng ký</button>
-                        </form>
-                    </div>
-                </div>
-
-                <div id="signIn" class="auth_form form_hiden">
-                    <div class="auth_form__container">
-                        <h4>Đăng Nhập</h4>
-                        <p>Bạn đã chưa tài khoản? <span class="signUp3">Đăng kí ngay</span></p>
-                        <form action="">
-            
-                            <div class="form-group ">
-                                <label for="" class="form-lable">Email</label>
-                                <input id="fullname" type="text">
-                                <span class="form-message"></span>
-                            </div>
-                            <div class="form-group ">
-                                <label for="" class="form-lable">Mật khẩu</label>
-                                <input id="fullname" type="text">
-                                <span class="form-message"></span>
-                            </div>
-                           
-                            <button class="btn3">Đăng nhập</button>
-                        </form>
-                       
-                    </div>                   
-                </div>
-                <span class="close"><i class="fa-solid fa-xmark"></i></span>
-              </div>
-            </div>
-
-        </div>
-        <script src="../public/main.js"></script>
-        <script>
-        var prev = document.getElementById('prev');
-        var next = document.getElementById('next');
-        var nextWidth = -206;
- 
-
-        next.onclick = function () {
-            if (nextWidth <= -4046) {
-                nextWidth = 434;
-            }
-            nextWidth += -640;
-            document.querySelector('.slides').style.marginLeft = nextWidth + 'px'; 
-        }
-
-        prev.onclick = function () {
-            if (nextWidth >= -206) {
-                nextWidth = -4046;
-            
-            }
-            nextWidth += 640;
-            document.querySelector('.slides').style.marginLeft = nextWidth + 'px';
-            console.log(nextWidth);
-        }
-
-        setInterval(function () {
-            if (nextWidth <= -4046) {
-                nextWidth = 434;
-            }
-            nextWidth += -640;
-            document.querySelector('.slides').style.marginLeft = nextWidth + 'px'; 
-        },3000);
-
-        setInterval(function () {
-            if (nextWidth <= -4046) {
-                nextWidth = 434;
-            }
-            nextWidth += -640;
-            document.querySelector('.feedbacks').style.marginLeft = nextWidth + 'px'; 
-        },3000);
-
-    </script>
-    
-    </body>
-
-</html>
+            </section>     
