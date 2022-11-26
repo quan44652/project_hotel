@@ -24,7 +24,7 @@
                     <td><?php echo $book['start_date'] ?></td>
                     <td><?php echo $book['end_date'] ?></td>
                     <td><?php echo $book['phone'] ?></td>
-                    <td><a href=""><button class="btn update">CheckIn</button></a> | <a href=""><button class="btn delete">CheckOut</button></a></td>
+                    <td><a href=""><button class="btn update">CheckIn</button></a> | <a href=""><button class="btn delete">CheckOut</button></a>| <a href="../controller/index.php?act=delete_order&id=<?php echo $book['booking_id'] ?>"><button class="btn delete">Thanh toán</button></a></td>
                 </tr>
                 </tr>
             <?php

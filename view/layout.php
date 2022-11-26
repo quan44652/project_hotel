@@ -17,7 +17,7 @@
                       <p>Deleniti nostrum laboriosam praesentium quasi quam
                           voluptate.</p>
                   </div>
-                  <!-- <div class="seaarch_room">
+                  <div class="seaarch_room">
                       <form action="./model.php?act=home" method="POST">
                           <div class="form_group">
                               <label>Check-In</label>
@@ -39,7 +39,7 @@
                           <button type="submit" name="submit" class="btn"><i class="fa-solid
                                     fa-magnifying-glass"></i></button>
                       </form>
-                  </div> -->
+                  </div>
 
               </div>
           </section>

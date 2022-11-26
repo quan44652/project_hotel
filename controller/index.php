@@ -83,6 +83,15 @@ if (isset($_GET['act'])) {
             $listbook = pdo_query($sql);
             require "../controller/order/order.php";
             break;
+        case 'delete_order':
+            if (isset($_GET['id'])) {
+                $sql = "DELETE FROM `booking` WHERE `booking_id` = '{$_GET['id']}'";
+                pdo_execute($sql);
+            }
+            $sql = "SELECT `booking`.`booking_id` as `booking_id`,`booking_detail`.`room_id` as `room_id`,`booking_detail`.`start_date` as `start_date`,`booking_detail`.`end_date` as `end_date`,`user`.`user_name` as `user_name`,`user`.`phone` as `phone` from `booking_detail` , `booking` , `user` where `booking_detail`.`booking_id` = `booking`.`booking_id` and `user`.`user_id` = `booking`.`user_id`";
+            $listbook = pdo_query($sql);
+            require "../controller/order/order.php";
+            break;
         case 'comment':
             $sql = "SELECT `comment`.`content` as  `content`,`comment`.`id` as  `id`, `comment`.`time` as  `time`,`rooms`.`name` as  `name`,`user`.`user_name` as `user_name` from `comment` , `user` , `rooms` where `comment`.`user_id` = `user`.`user_id` and `comment`.`room_id` = `rooms`.`room_id`  ORDER BY `id` DESC";
             $listComment = pdo_query($sql);
@@ -108,7 +117,6 @@ if (isset($_GET['act'])) {
             require "../controller/user/user.php";
             break;
         case 'detete_user':
-            echo 1231231231313;
             if (isset($_GET['id'])) {
                 $sql = "DELETE FROM `user` WHERE `user_id` = '{$_GET['id']}'";
                 pdo_execute($sql);
@@ -147,5 +155,4 @@ if (isset($_GET['act'])) {
             break;
     }
 }
-include('../controller/footer.php')
-    ?>
+include('../controller/footer.php');
