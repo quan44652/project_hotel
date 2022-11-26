@@ -9,7 +9,7 @@
                 <td width="200px">Start date</td>
                 <td width="200px">End date</td>
                 <td width="200px">Phone</td>
-                <td width="300px">ACtive</td>
+                <td width="400px">ACtive</td>
 
             </tr>
         </thead>
@@ -24,7 +24,7 @@
                     <td><?php echo $book['start_date'] ?></td>
                     <td><?php echo $book['end_date'] ?></td>
                     <td><?php echo $book['phone'] ?></td>
-                    <td><a href=""><button class="btn update">CheckIn</button></a> | <a href=""><button class="btn delete">CheckOut</button></a></td>
+                    <td><a href=""><button class="btn update">CheckIn</button></a> | <a href=""><button class="btn delete">CheckOut</button></a> | <a href="../controller/index.php?act=pay_oder"><button class="btn update pay" style="color: black;">Thanh Toán</button></a></td>
                 </tr>
                 </tr>
             <?php
