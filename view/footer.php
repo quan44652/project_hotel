@@ -1,3 +1,6 @@
+
+
+
 <footer class="footer">
     <div class="row">
         <div class="col-4">
@@ -65,66 +68,6 @@
     </div>
 </footer>
 
-<div class="modal-section form_hiden">
-    <div class="modal_overlay">
-        <div id="signUp" class="auth_form form_hiden">
-            <div class="auth_form__container">
-                <h4>Đăng ký tài khoản</h4>
-                <p>Bạn đã có tài khoản? <span class="signIn3">Đăng
-                        nhập</span></p>
-                <form action="">
-                    <div class="form-group">
-                        <label for="" class="form-lable">Tên đầy đủ</label>
-                        <input id="fullname" type="text">
-                        <span class="form-message"></span>
-                    </div>
-                    <div class="form-group ">
-                        <label for="" class="form-lable">Email</label>
-                        <input id="fullname" type="text">
-                        <span class="form-message"></span>
-                    </div>
-                    <div class="form-group ">
-                        <label for="" class="form-lable">Mật khẩu</label>
-                        <input id="fullname" type="text">
-                        <span class="form-message"></span>
-                    </div>
-                    <div class="form-group ">
-                        <label for="" class="form-lable">Nhập lại
-                            mật khẩu</label>
-                        <input id="fullname" type="text">
-                        <span class="form-message"></span>
-                    </div>
-                    <button class="btn3">Đăng ký</button>
-                </form>
-            </div>
-        </div>
-
-        <div id="signIn" class="auth_form form_hiden">
-            <div class="auth_form__container">
-                <h4>Đăng Nhập</h4>
-                <p>Bạn đã chưa tài khoản? <span class="signUp3">Đăng
-                        kí ngay</span></p>
-                <form action="">
-
-                    <div class="form-group ">
-                        <label for="" class="form-lable">Email</label>
-                        <input id="fullname" type="text">
-                        <span class="form-message"></span>
-                    </div>
-                    <div class="form-group ">
-                        <label for="" class="form-lable">Mật khẩu</label>
-                        <input id="fullname" type="text">
-                        <span class="form-message"></span>
-                    </div>
-
-                    <button class="btn3">Đăng nhập</button>
-                </form>
-
-            </div>
-        </div>
-        <span class="close"><i class="fa-solid fa-xmark"></i></span>
-    </div>
-</div>
 <script src="../public/main.js"></script>
 <script>
     var nextWidth = 434;

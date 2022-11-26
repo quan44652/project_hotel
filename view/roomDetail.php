@@ -1,3 +1,4 @@
+
 <section class="roomDetail section-m1">
     <div class="Sign-room--img col-6">
         <div class="room-main">
@@ -43,15 +44,16 @@
             </div>
         </div>
         <div class="seaarch_room">
-            <form action="">
+            <form action="./model.php?act=detail" method="post">
                 <div class="form_group">
                     <label>Check-In</label>
-                    <input type="date" placeholder="Check-In Date">
+                    <input name="start_date" type="date" placeholder="Check-In Date">
                 </div>
                 <div class="form_group">
                     <label>Check-Out</label>
-                    <input type="date" placeholder="Check-Out Date">
+                    <input name="end_date" type="date" placeholder="Check-Out Date">
                 </div>
+                <input type="hidden" name="room_id" value="<?php echo $room['room_id'] ?>">
                 <div class="form_group">
                     <label>People</label>
                     <select name="" id="">
@@ -61,7 +63,7 @@
                         <option value="">4</option>
                     </select>
                 </div>
-                <button class="btn">Book Now</button>
+                <button type="submit" name="submit" class="btn">Book Now</button>
             </form>
         </div>
     </div>

@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-        <link rel="stylesheet" href="../public/layout.css">
+        <link rel="stylesheet" href="./public/layout.css">
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
             integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
@@ -20,13 +20,13 @@
                     <img src="../public/logo/logo.svg" alt="">
                 </div>
                 <ul class="list_menu">
-                    <li><a href="./layout.html">
+                    <li><a href="./view/model.php?act=home">
                             <span class="line"></span>
                             Home</a></li>
                     <li><a href="./about.html">
                             <span class="line"></span>
                             About</a></li>
-                    <li><a href="./rooms.html">
+                    <li><a href="./view/model.php?act=rooms">
                             <span class="line"></span>
                             Rooms</a></li>
                     <li><a href="./blog.html">
@@ -40,13 +40,13 @@
                             Booking</a></li>
                 </ul>
                 <div class="modal ">
-                  <div class="modal_item hidden">
+                  <div class="modal_item ">
                     <span id="signIn2" class="btn">Sign In</span>
                     <span id="signUp2" class="btn">Sign Up</span>
                   </div>
-                  <div class="modal_item">
+                  <div class="modal_item hidden">
                     <div class="modal_img">
-                        <img src="../public/feedback/faces-1-scaled.jpg" width="50px" height="50px" alt="">
+                        <img src="./public/feedback/faces-1-scaled.jpg" width="50px" height="50px" alt="">
                     </div>
                     <ul class="modal_content">
                         <li><a href="">Thông tin tài khoản</a></li>
@@ -57,6 +57,220 @@
                 </div>
 
             </header>
+
+            <section class="banner">
+                <div class="banner_img">
+                    <img src="./public/banner/banner1.jpg" alt="">
+                </div>
+                <div class="banner__content">
+                    <div class="banner_title">
+                        <span class="banner_star">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </span>
+                        <h1>
+                            Welcome To Kinsley
+                        </h1>
+                        <p>Deleniti nostrum laboriosam praesentium quasi quam
+                            voluptate.</p>
+                    </div>
+                    <div class="seaarch_room">
+                        <form action="">
+                            <div class="form_group">
+                                <label>Check-In</label>
+                                <input type="date" placeholder="Check-In Date">
+                            </div>
+                            <div class="form_group">
+                                <label>Check-Out</label>
+                                <input type="date" placeholder="Check-Out Date">
+                            </div>
+                            <div class="form_group">
+                                <label>People</label>
+                                <select name="" id="">
+                                    <option value="">1</option>
+                                    <option value="">2</option>
+                                    <option value="">3</option>
+                                    <option value="">4</option>
+                                </select>
+                            </div>
+                            <button class="btn"><i class="fa-solid
+                                    fa-magnifying-glass"></i></button>
+                        </form>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="feature ">
+                <div class="features">
+                    <div class="feature_item col-3">
+                        <img src="./public/feature/f-1.svg" alt="">
+                        <span>All inclusive</span>
+                    </div>
+                    <div class="feature_item col-3">
+                        <img src="./public/feature/f-2.svg" alt="">
+                        <span>All inclusive</span>
+                    </div>
+                    <div class="feature_item col-3">
+                        <img src="./public/feature/f-3.svg" alt="">
+                        <span>All inclusive</span>
+                    </div>
+                    <div class="feature_item col-3">
+                        <img src="./public/feature/f-4.svg" alt="">
+                        <span>All inclusive</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about">
+                <div class="about-cart">
+                    <div class="row">
+                        <div class="about-img col-6">
+                            <img src="./public/about/about-t1.jpg" alt="">
+                        </div>
+                        <div class="about-content col-6">
+                            <h2 class="about-cart--title">
+                                We have 17+ years of Experience
+                            </h2>
+                            <p>Consectetur adipisicing elit. Nihil, illum
+                                voluptate eveniet ex fugit ea delectus, sed
+                                voluptatem. Laborum accusantium libero commodi
+                                id officiis itaque esse adipisci, necessitatibus
+                                asperiores, illo odio.</p>
+                            <button class="btn">More About Us</button>
+                        </div>
+                        <div class="about-content col-6">
+                            <h2>Start your Amazing Adventure!</h2>
+                            <p>Consectetur adipisicing elit. Nihil, illum
+                                voluptate eveniet ex fugit ea delectus, sed
+                                voluptatem. Laborum accusantium libero commodi
+                                id officiis itaque esse adipisci, necessitatibus
+                                asperiores, illo odio.</p>
+                            <button class="btn">Chose A Room</button>
+                        </div>
+                        <div class="about-img col-6">
+                            <img src="./public/about/about-t2.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="place">
+                <div class="place-title">
+                    <h1>Kinsley is Waiting for You!</h1>
+                    <p>Consectetur adipisicing elit. Nihil, illum voluptate
+                        eveniet ex fugit ea delectus, sed voluptatem. Laborum
+                        <br>
+                        accusantium libero commodi id officiis itaque esse
+                        adipisci, necessitatibus asperiores, illo odio.
+                    </p>
+                    <button class="btn">More Our Places</button>
+                </div>
+                <div class="slider">
+                    <div class="slides">
+                        <div class="slide-box">
+                            <div class="slide">
+                                <img src="./public/about/about-7.jpg" alt="">
+                                <i class="fa-solid
+                                    fa-magnifying-glass icon"></i>
+                                <span>View form sea</span>
+                            </div>
+                        </div>
+                        <div class="slide-box">
+                            <div class="slide">
+                                <img src="./public/about/about-1.jpg" alt="">
+                                <i class="fa-solid
+                                    fa-magnifying-glass icon"></i>
+                                <span>View form sea</span>
+                            </div>
+                        </div>
+                        <div class="slide-box">
+                            <div class="slide">
+                                <img src="./public/about/about-2.jpg" alt="">
+                                <i class="fa-solid
+                                    fa-magnifying-glass icon"></i>
+                                <span>View form sea</span>
+                            </div>
+                        </div>
+                        <div class="slide-box">
+                            <div class="slide">
+                                <img src="./public/about/about-3.jpg" alt="">
+                                <i class="fa-solid
+                                    fa-magnifying-glass icon"></i>
+                                <span>View form sea</span>
+                            </div>
+                        </div>
+                        <div class="slide-box">
+                            <div class="slide">
+                                <img src="./public/about/about-4.jpg" alt="">
+                                <i class="fa-solid
+                                    fa-magnifying-glass icon"></i>
+                                <span>View form sea</span>
+                            </div>
+                        </div>
+                        <div class="slide-box">
+                            <div class="slide">
+                                <img src="./public/about/about-5.jpg" alt="">
+                                <i class="fa-solid
+                                    fa-magnifying-glass icon"></i>
+                                <span>View form sea</span>
+                            </div>
+                        </div>
+                        <div class="slide-box">
+                            <div class="slide">
+                                <img src="./public/about/about-6.jpg" alt="">
+                                <i class="fa-solid
+                                    fa-magnifying-glass icon"></i>
+                                <span>View form sea</span>
+                            </div>
+                        </div>
+                        <div class="slide-box">
+                            <div class="slide">
+                                <img src="./public/about/about-7.jpg" alt="">
+                                <i class="fa-solid
+                                    fa-magnifying-glass icon"></i>
+                                <span>View form sea</span>
+                            </div>
+                        </div>
+                        <div class="slide-box">
+                            <div class="slide">
+                                <img src="./public/about/about-1.jpg" alt="">
+                                <i class="fa-solid
+                                    fa-magnifying-glass icon"></i>
+                                <span>View form sea</span>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="navigation-manual">
+                        <i id="prev" class="fa-solid fa-arrow-left"></i>
+                        <i id="next" class="fa-solid fa-arrow-right"></i>
+                    </span>
+                </div>
+            </section>
+
+            <section class="feature ">
+                <div class="features">
+                    <div class="feature_item col-3">
+                        <p class="font">4</p>
+                        <span>All inclusive</span>
+                    </div>
+                    <div class="feature_item col-3">
+                        <p class="font">145</p>
+                        <span>All inclusive</span>
+                    </div>
+                    <div class="feature_item col-3">
+                        <p class="font">6</p>
+                        <span>All inclusive</span>
+                    </div>
+                    <div class="feature_item col-3">
+                        <p class="font">4587</p>
+                        <span>All inclusive</span>
+                    </div>
+                </div>
+            </section>
 
             <section class="place section-m1">
                 <div class="place-title">
@@ -74,7 +288,7 @@
                         <div class="room-item col-4">
                             <div class="room">
                                 <div class="room-img">
-                                    <img src="../public/room/room-1.jpg" alt="">
+                                    <img src="./public/room/room-1.jpg" alt="">
                                 </div>
                                 <div class="room-content">
                                     <ul class="room-space">
@@ -109,7 +323,7 @@
                         <div class="room-item col-4">
                             <div class="room">
                                 <div class="room-img">
-                                    <img src="../public/room/room-2.jpg" alt="">
+                                    <img src="./public/room/room-2.jpg" alt="">
                                 </div>
                                 <div class="room-content">
                                     <ul class="room-space">
@@ -144,7 +358,7 @@
                         <div class="room-item col-4">
                             <div class="room">
                                 <div class="room-img">
-                                    <img src="../public/room/room-3.jpg" alt="">
+                                    <img src="./public/room/room-3.jpg" alt="">
                                 </div>
                                 <div class="room-content">
                                     <ul class="room-space">
@@ -179,7 +393,7 @@
                         <div class="room-item col-4">
                             <div class="room">
                                 <div class="room-img">
-                                    <img src="../public/room/room-4.jpg" alt="">
+                                    <img src="./public/room/room-4.jpg" alt="">
                                 </div>
                                 <div class="room-content">
                                     <ul class="room-space">
@@ -214,7 +428,7 @@
                         <div class="room-item col-4">
                             <div class="room">
                                 <div class="room-img">
-                                    <img src="../public/room/room-5.jpg" alt="">
+                                    <img src="./public/room/room-5.jpg" alt="">
                                 </div>
                                 <div class="room-content">
                                     <ul class="room-space">
@@ -249,7 +463,7 @@
                         <div class="room-item col-4">
                             <div class="room">
                                 <div class="room-img">
-                                    <img src="../public/room/room-6.jpg" alt="">
+                                    <img src="./public/room/room-6.jpg" alt="">
                                 </div>
                                 <div class="room-content">
                                     <ul class="room-space">
@@ -302,7 +516,7 @@
                         <div class="service-item col-4">
                             <div class="service">
                                 <div class="service-img">
-                                    <img src="../public/services/service-4.jpg"
+                                    <img src="./public/services/service-4.jpg"
                                         alt="">
                                 </div>
                                 <div class="service-content">
@@ -322,7 +536,7 @@
                         <div class="service-item col-4">
                             <div class="service">
                                 <div class="service-img">
-                                    <img src="../public/services/service-2.jpg"
+                                    <img src="./public/services/service-2.jpg"
                                         alt="">
                                 </div>
                                 <div class="service-content">
@@ -342,7 +556,7 @@
                         <div class="service-item col-4">
                             <div class="service">
                                 <div class="service-img">
-                                    <img src="../public/services/service-1.jpg"
+                                    <img src="./public/services/service-1.jpg"
                                         alt="">
                                 </div>
                                 <div class="service-content">
@@ -692,7 +906,7 @@
                         <div class="room-item col-4">
                             <div class="room">
                                 <div class="room-img">
-                                    <img src="../public/blog/blog-2.jpg" alt="">
+                                    <img src="./public/blog/blog-2.jpg" alt="">
                                 </div>
                                 <div class="room-content">
                                     <ul class="room-space">
@@ -724,7 +938,7 @@
                         <div class="room-item col-4">
                             <div class="room">
                                 <div class="room-img">
-                                    <img src="../public/blog/blog-3.jpg" alt="">
+                                    <img src="./public/blog/blog-3.jpg" alt="">
                                 </div>
                                 <div class="room-content">
                                     <ul class="room-space">
@@ -761,7 +975,7 @@
                 <div class="row">
                     <div class="col-4">
                         <div class="logo footer-title">
-                            <img src="../public/logo/logo-w.svg" alt="">
+                            <img src="./public/logo/logo-w.svg" alt="">
                         </div>
                         <p>Sequi dolores ratione eos eveniet provident soluta.
                             Omnis nesciunt sit eos at, eius voluptatum rem
@@ -801,22 +1015,22 @@
                         </div>
                         <div class="row">
                             <div class="ins-img col-4">
-                                <img src="../public/about/about-6.jpg" alt="">
+                                <img src="./public/about/about-6.jpg" alt="">
                             </div>
                             <div class="ins-img col-4">
-                                <img src="../public/about/about-2.jpg" alt="">
+                                <img src="./public/about/about-2.jpg" alt="">
                             </div>
                             <div class="ins-img col-4">
-                                <img src="../public/about/about-3.jpg" alt="">
+                                <img src="./public/about/about-3.jpg" alt="">
                             </div>
                             <div class="ins-img col-4">
-                                <img src="../public/about/about-4.jpg" alt="">
+                                <img src="./public/about/about-4.jpg" alt="">
                             </div>
                             <div class="ins-img col-4">
-                                <img src="../public/about/about-5.jpg" alt="">
+                                <img src="./public/about/about-5.jpg" alt="">
                             </div>
                             <div class="ins-img col-4">
-                                <img src="../public/about/about-7.jpg" alt="">
+                                <img src="./public/about/about-7.jpg" alt="">
                             </div>
 
                         </div>
@@ -883,7 +1097,7 @@
             </div>
 
         </div>
-        <script src="../public/main.js"></script>
+        <script src="./public/main.js"></script>
         <script>
         var prev = document.getElementById('prev');
         var next = document.getElementById('next');
