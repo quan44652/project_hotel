@@ -1,4 +1,49 @@
-    <section class="place section-m1">
+<section class="banner">
+              <div class="banner_img">
+                  <img src="../public/banner/banner1.jpg" alt="">
+              </div>
+              <div class="banner__content">
+                  <div class="banner_title">
+                      <span class="banner_star">
+                          <i class="fa-solid fa-star"></i>
+                          <i class="fa-solid fa-star"></i>
+                          <i class="fa-solid fa-star"></i>
+                          <i class="fa-solid fa-star"></i>
+                          <i class="fa-solid fa-star"></i>
+                      </span>
+                      <h1>
+                          Welcome To Kinsley
+                      </h1>
+                      <p>Deleniti nostrum laboriosam praesentium quasi quam
+                          voluptate.</p>
+                  </div>
+                  <div class="seaarch_room">
+                      <form action="./model.php?act=rooms" method="POST">
+                          <div class="form_group">
+                              <label>Check-In</label>
+                              <input name="checkin" type="date" placeholder="Check-In Date">
+                          </div>
+                          <div class="form_group">
+                              <label>Check-Out</label>
+                              <input name="checkout" type="date" placeholder="Check-Out Date">
+                          </div>
+                          <div class="form_group">
+                              <label>People</label>
+                              <select name="" id="">
+                                  <option value="">1</option>
+                                  <option value="">2</option>
+                                  <option value="">3</option>
+                                  <option value="">4</option>
+                              </select>
+                          </div>
+                          <button type="submit" name="submit" class="btn"><i class="fa-solid
+                                    fa-magnifying-glass"></i></button>
+                      </form>
+                  </div>
+
+              </div>
+          </section>
+ <section class="place section-m1">
         <div class="place-title">
             <h1>Choose your Room</h1>
             <p>Laborum accusantium libero commodi. Voluptate consequatur
