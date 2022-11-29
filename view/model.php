@@ -133,7 +133,6 @@ if (isset($_GET['act'])) {
                 foreach($listBook as $book) {
                     if($book['user_id'] == $user['user_id'] ) {
                         $stt +=1;
-                        echo $stt;
                     }
                    }
                 if ($user) {
@@ -154,7 +153,6 @@ if (isset($_GET['act'])) {
             break;
         case 'resgeter':
             if(isset($_POST['submit'])) {
-                echo 123;
                 $full_name = $_POST['full_name'];
                 $password = $_POST['password'];
                 $comfirm_password = $_POST['comfirm_password'];

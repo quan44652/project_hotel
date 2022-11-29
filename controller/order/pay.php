@@ -33,7 +33,7 @@
                         <td><?php echo $book['start_date'] ?></td>
                         <td><?php echo $book['end_date'] ?></td>
                         <td><?php echo $book['phone'] ?></td>
-                        <td><?php echo $book['price'] ?></td>
+                        <td><?php echo $book['price'] ?> .VNĐ</td>
                         <td><a href="../controller/index.php?act=checkin&id=<?php echo $book['id'] ?>"><button class="btn update">Thanh toán</button></a></td>
                     </tr>
                     </tr>
