@@ -11,11 +11,12 @@
         <thead>
             <tr>
                 <td width="100px">Order ID</td>
-                <td width="250px">Full name</td>
+                <td width="200px">Full name</td>
                 <td width="180px">Room</td>
-                <td width="200px">Start date</td>
-                <td width="200px">End date</td>
-                <td width="240px">Phone</td>
+                <td width="160px">Start date</td>
+                <td width="160px">End date</td>
+                <td width="180px">Phone</td>
+                <td width="200px">Price</td>
                 <td width="200px">ACtive</td>
 
             </tr>
@@ -32,6 +33,7 @@
                         <td><?php echo $book['start_date'] ?></td>
                         <td><?php echo $book['end_date'] ?></td>
                         <td><?php echo $book['phone'] ?></td>
+                        <td><?php echo $book['price'] ?> .VNĐ</td>
                         <td><a href="../controller/index.php?act=checkout&id=<?php echo $book['id'] ?>"><button class="btn update">CheckIn</button></a></td>
                     </tr>
                     </tr>

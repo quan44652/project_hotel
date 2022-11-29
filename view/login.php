@@ -17,7 +17,7 @@
                 <div class="auth_form ">
                     <div class="auth_form__container">
                         <h4>Đăng nhập</h4>
-                        <p>Bạn đã có tài khoản? <a href="../view/model.php?act=resgeter">Đăng ký</a> | <a href="./layout.html">Trở về</a></p>
+                        <p>Bạn đã có tài khoản? <a href="../view/model.php?act=resgeter">Đăng ký</a> | <a href="../view/model.php?act=home">Trở về</a></p>
                         <form action="../view/model.php?act=login" method="post">
                             <div class="form-group">
                                 <label for="" class="form-lable">Email</label>

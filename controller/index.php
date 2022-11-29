@@ -86,7 +86,7 @@ if (isset($_GET['act'])) {
                 $sql = "UPDATE booking_detail set `status` = '$status' where id = '{$_GET['id']}'";
                 pdo_execute($sql);
             }
-            $sql = "SELECT `booking`.`booking_id` as `booking_id`,`booking_detail`.`room_id` as `room_id`,`booking_detail`.`status` as `status`,`booking_detail`.`id` as `id`,`booking_detail`.`start_date` as `start_date`,`booking_detail`.`end_date` as `end_date`,`user`.`ful_name` as `ful_name`,`user`.`phone` as `phone` from `booking_detail` , `booking` , `user` where `booking_detail`.`booking_id` = `booking`.`booking_id` and `user`.`user_id` = `booking`.`user_id`";
+            $sql = "SELECT `booking`.`booking_id` as `booking_id`,`booking_detail`.`room_id` as `room_id`,`booking_detail`.`status` as `status`,`booking_detail`.`id` as `id`,`booking_detail`.`start_date` as `start_date`,`booking_detail`.`end_date` as `end_date`,`user`.`ful_name` as `ful_name`,`user`.`phone` as `phone`,`rooms`.`price` as `price` from `booking_detail` , `booking` , `user` , `rooms` where `booking_detail`.`booking_id` = `booking`.`booking_id` and `user`.`user_id` = `booking`.`user_id`and `booking_detail`.`room_id` = `rooms`.`room_id`";
             $listbook = pdo_query($sql);
             require "../controller/order/order.php";
             break;
@@ -96,7 +96,7 @@ if (isset($_GET['act'])) {
                 $sql = "UPDATE booking_detail set `status` = '$status' where id = '{$_GET['id']}'";
                 pdo_execute($sql);
             }
-            $sql = "SELECT `booking`.`booking_id` as `booking_id`,`booking_detail`.`room_id` as `room_id`,`booking_detail`.`status` as `status`,`booking_detail`.`id` as `id`,`booking_detail`.`start_date` as `start_date`,`booking_detail`.`end_date` as `end_date`,`user`.`ful_name` as `ful_name`,`user`.`phone` as `phone` from `booking_detail` , `booking` , `user` where `booking_detail`.`booking_id` = `booking`.`booking_id` and `user`.`user_id` = `booking`.`user_id`";
+            $sql = "SELECT `booking`.`booking_id` as `booking_id`,`booking_detail`.`room_id` as `room_id`,`booking_detail`.`status` as `status`,`booking_detail`.`id` as `id`,`booking_detail`.`start_date` as `start_date`,`booking_detail`.`end_date` as `end_date`,`user`.`ful_name` as `ful_name`,`user`.`phone` as `phone`,`rooms`.`price` as `price` from `booking_detail` , `booking` , `user` , `rooms` where `booking_detail`.`booking_id` = `booking`.`booking_id` and `user`.`user_id` = `booking`.`user_id`and `booking_detail`.`room_id` = `rooms`.`room_id`";
             $listbook = pdo_query($sql);
             require "../controller/order/checkin.php";
             break;
@@ -106,12 +106,12 @@ if (isset($_GET['act'])) {
                 $sql = "UPDATE booking_detail set `status` = '$status' where id = '{$_GET['id']}'";
                 pdo_execute($sql);
             }
-            $sql = "SELECT `booking`.`booking_id` as `booking_id`,`booking_detail`.`room_id` as `room_id`,`booking_detail`.`status` as `status`,`booking_detail`.`id` as `id`,`booking_detail`.`start_date` as `start_date`,`booking_detail`.`end_date` as `end_date`,`user`.`ful_name` as `ful_name`,`user`.`phone` as `phone` from `booking_detail` , `booking` , `user` where `booking_detail`.`booking_id` = `booking`.`booking_id` and `user`.`user_id` = `booking`.`user_id`";
+            $sql = "SELECT `booking`.`booking_id` as `booking_id`,`booking_detail`.`room_id` as `room_id`,`booking_detail`.`status` as `status`,`booking_detail`.`id` as `id`,`booking_detail`.`start_date` as `start_date`,`booking_detail`.`end_date` as `end_date`,`user`.`ful_name` as `ful_name`,`user`.`phone` as `phone`,`rooms`.`price` as `price` from `booking_detail` , `booking` , `user` , `rooms` where `booking_detail`.`booking_id` = `booking`.`booking_id` and `user`.`user_id` = `booking`.`user_id`and `booking_detail`.`room_id` = `rooms`.`room_id`";
             $listbook = pdo_query($sql);
             require "../controller/order/checkout.php";
             break;
         case 'pay':
-            $sql = "SELECT `booking`.`booking_id` as `booking_id`,`booking_detail`.`room_id` as `room_id`,`booking_detail`.`status` as `status`,`booking_detail`.`id` as `id`,`booking_detail`.`start_date` as `start_date`,`booking_detail`.`end_date` as `end_date`,`user`.`ful_name` as `ful_name`,`user`.`phone` as `phone` from `booking_detail` , `booking` , `user` where `booking_detail`.`booking_id` = `booking`.`booking_id` and `user`.`user_id` = `booking`.`user_id`";
+            $sql = "SELECT `booking`.`booking_id` as `booking_id`,`booking_detail`.`room_id` as `room_id`,`booking_detail`.`status` as `status`,`booking_detail`.`id` as `id`,`booking_detail`.`start_date` as `start_date`,`booking_detail`.`end_date` as `end_date`,`user`.`ful_name` as `ful_name`,`user`.`phone` as `phone`,`rooms`.`price` as `price` from `booking_detail` , `booking` , `user` , `rooms` where `booking_detail`.`booking_id` = `booking`.`booking_id` and `user`.`user_id` = `booking`.`user_id`and `booking_detail`.`room_id` = `rooms`.`room_id`";
             $listbook = pdo_query($sql);
             require "../controller/order/pay.php";
             break;
