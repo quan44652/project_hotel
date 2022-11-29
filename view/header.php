@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<!-- <?php session_start(); ?> -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,54 +13,39 @@
 
 <body>
     <div class="container">
-        <header class="header">
-            <div class="logo">
-                <img src="../public/logo/logo.svg" alt="">
-            </div>
-            <ul class="list_menu">
-                <li><a href="./model.php?act=home">
-                        <span class="line"></span>
-                        Home</a></li>
-                <li><a href="./model.php?act=about">
-                        <span class="line"></span>
-                        About</a></li>
-                <li><a href="./model.php?act=rooms">
-                        <span class="line"></span>
-                        Rooms</a></li>
-                <li><a href="./model.php?act=blog">
-                        <span class="line"></span>
-                        Blog</a></li>
-                <li><a href="./model.php?act=contact">
-                        <span class="line"></span>
-                        Contact</a></li>
-                <li><a href="./model.php?act=booking">
-                        <span class="line"></span>
-                        Booking</a></li>
-            </ul>
-            <div class="modal ">
-                <?php
-                if (isset($_SESSION['user'])) {
-                ?>
-                    <div class="modal_item hidden">
-                        <div class="modal_img">
-                            <img src="../public/feedback/faces-1-scaled.jpg" width="50px" height="50px" alt="">
-                        </div>
-                        <ul class="modal_content">
-                            <li><a href="">Thông tin tài khoản</a></li>
-                            <li><a href="">Đổi mật khẩu</a></li>
-                            <li><a href="">Đăng xuất</a></li>
-                        </ul>
-                    </div>
-                <?php
-                } else {
-                ?>
-                    <div class="modal_item ">
-                        <span id="signIn2" class="btn">Sign In</span>
-                        <span id="signUp2" class="btn">Sign Up</span>
-                    </div>
-                <?php
-                }
-                ?>
-            </div>
+        <section class="banner">
+            <header class="header">
+                <div class="logo">
+                    <a href="../view/model.php?act=home"><img src="../public/logo/logo-w.svg" alt=""></a>
+                </div>
 
-        </header>
+                <div class="modal ">
+                    <?php
+                    if (isset($_SESSION['user'])) {
+                    ?>
+                        <div class="modal_item">
+                            <div class="modal_img">
+                                <img src="../public/feedback/user.png" width="50px" height="50px" alt="">
+                            </div>
+                            <ul class="modal_content">
+                                <li><a href="">Phòng đã đặt</a></li>
+                                <li><a href="">Thông tin tài khoản</a></li>
+                                <li><a href="">Đổi mật khẩu</a></li>
+                                <li><a href="./model.php?act=logout">Đăng xuất</a></li>
+                            </ul>
+                        </div>
+                    <?php
+                    } else {
+                    ?>
+                        <div class="modal_item ">
+                            <a class="btn" href="./model.php?act=login">Sign In</a>
+                            <a class="btn" href="./model.php?act=resgeter">Sign Up</a>
+                        </div>
+                    <?php
+                    }
+                    ?>
+
+
+                </div>
+
+            </header>

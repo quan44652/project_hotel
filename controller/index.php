@@ -29,7 +29,9 @@ if (isset($_GET['act'])) {
             if (isset($_POST['submit'])) {
                 $cate_name = $_POST['cate_name'];
                 $id = $_POST['id'];
-                $sql = "UPDATE categories set cate_name = '$cate_name' where cate_id = '$id'";
+                echo $cate_name;
+                echo $id;
+                $sql = "UPDATE categories set cate_name = '{$cate_name}' where cate_id = '{$id}'";
                 pdo_execute($sql);
                 $messager = "Sửa thành công";
             }
@@ -79,9 +81,39 @@ if (isset($_GET['act'])) {
             require "../controller/room/room.php";
             break;
         case 'order':
-            $sql = "SELECT `booking`.`booking_id` as `booking_id`,`booking_detail`.`room_id` as `room_id`,`booking_detail`.`start_date` as `start_date`,`booking_detail`.`end_date` as `end_date`,`user`.`user_name` as `user_name`,`user`.`phone` as `phone` from `booking_detail` , `booking` , `user` where `booking_detail`.`booking_id` = `booking`.`booking_id` and `user`.`user_id` = `booking`.`user_id`";
+            if (isset($_GET['id'])) {
+                $status = 3;
+                $sql = "UPDATE booking_detail set `status` = '$status' where id = '{$_GET['id']}'";
+                pdo_execute($sql);
+            }
+            $sql = "SELECT `booking`.`booking_id` as `booking_id`,`booking_detail`.`room_id` as `room_id`,`booking_detail`.`status` as `status`,`booking_detail`.`id` as `id`,`booking_detail`.`start_date` as `start_date`,`booking_detail`.`end_date` as `end_date`,`user`.`ful_name` as `ful_name`,`user`.`phone` as `phone` from `booking_detail` , `booking` , `user` where `booking_detail`.`booking_id` = `booking`.`booking_id` and `user`.`user_id` = `booking`.`user_id`";
             $listbook = pdo_query($sql);
             require "../controller/order/order.php";
+            break;
+        case 'checkin':
+            if (isset($_GET['id'])) {
+                $status = 1;
+                $sql = "UPDATE booking_detail set `status` = '$status' where id = '{$_GET['id']}'";
+                pdo_execute($sql);
+            }
+            $sql = "SELECT `booking`.`booking_id` as `booking_id`,`booking_detail`.`room_id` as `room_id`,`booking_detail`.`status` as `status`,`booking_detail`.`id` as `id`,`booking_detail`.`start_date` as `start_date`,`booking_detail`.`end_date` as `end_date`,`user`.`ful_name` as `ful_name`,`user`.`phone` as `phone` from `booking_detail` , `booking` , `user` where `booking_detail`.`booking_id` = `booking`.`booking_id` and `user`.`user_id` = `booking`.`user_id`";
+            $listbook = pdo_query($sql);
+            require "../controller/order/checkin.php";
+            break;
+        case 'checkout':
+            if (isset($_GET['id'])) {
+                $status = 2;
+                $sql = "UPDATE booking_detail set `status` = '$status' where id = '{$_GET['id']}'";
+                pdo_execute($sql);
+            }
+            $sql = "SELECT `booking`.`booking_id` as `booking_id`,`booking_detail`.`room_id` as `room_id`,`booking_detail`.`status` as `status`,`booking_detail`.`id` as `id`,`booking_detail`.`start_date` as `start_date`,`booking_detail`.`end_date` as `end_date`,`user`.`ful_name` as `ful_name`,`user`.`phone` as `phone` from `booking_detail` , `booking` , `user` where `booking_detail`.`booking_id` = `booking`.`booking_id` and `user`.`user_id` = `booking`.`user_id`";
+            $listbook = pdo_query($sql);
+            require "../controller/order/checkout.php";
+            break;
+        case 'pay':
+            $sql = "SELECT `booking`.`booking_id` as `booking_id`,`booking_detail`.`room_id` as `room_id`,`booking_detail`.`status` as `status`,`booking_detail`.`id` as `id`,`booking_detail`.`start_date` as `start_date`,`booking_detail`.`end_date` as `end_date`,`user`.`ful_name` as `ful_name`,`user`.`phone` as `phone` from `booking_detail` , `booking` , `user` where `booking_detail`.`booking_id` = `booking`.`booking_id` and `user`.`user_id` = `booking`.`user_id`";
+            $listbook = pdo_query($sql);
+            require "../controller/order/pay.php";
             break;
         case 'delete_order':
             if (isset($_GET['id'])) {
