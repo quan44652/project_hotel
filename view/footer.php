@@ -1,6 +1,3 @@
-
-
-
 <footer class="footer">
     <div class="row">
         <div class="col-4">
@@ -101,46 +98,46 @@
     }
 </script>
 <script>
-        var prev = document.getElementById('prev');
-        var next = document.getElementById('next');
-        var nextWidth = -206;
- 
+    var prev = document.getElementById('prev');
+    var next = document.getElementById('next');
+    var nextWidth = -206;
 
-        next.onclick = function () {
-            if (nextWidth <= -4046) {
-                nextWidth = 434;
-            }
-            nextWidth += -640;
-            document.querySelector('.slides').style.marginLeft = nextWidth + 'px'; 
+
+    next.onclick = function() {
+        if (nextWidth <= -4046) {
+            nextWidth = 434;
         }
+        nextWidth += -640;
+        document.querySelector('.slides').style.marginLeft = nextWidth + 'px';
+    }
 
-        prev.onclick = function () {
-            if (nextWidth >= -206) {
-                nextWidth = -4046;
-            
-            }
-            nextWidth += 640;
-            document.querySelector('.slides').style.marginLeft = nextWidth + 'px';
-            console.log(nextWidth);
+    prev.onclick = function() {
+        if (nextWidth >= -206) {
+            nextWidth = -4046;
+
         }
+        nextWidth += 640;
+        document.querySelector('.slides').style.marginLeft = nextWidth + 'px';
+        console.log(nextWidth);
+    }
 
-        setInterval(function () {
-            if (nextWidth <= -4046) {
-                nextWidth = 434;
-            }
-            nextWidth += -640;
-            document.querySelector('.slides').style.marginLeft = nextWidth + 'px'; 
-        },3000);
+    setInterval(function() {
+        if (nextWidth <= -4046) {
+            nextWidth = 434;
+        }
+        nextWidth += -640;
+        document.querySelector('.slides').style.marginLeft = nextWidth + 'px';
+    }, 3000);
 
-        setInterval(function () {
-            if (nextWidth <= -4046) {
-                nextWidth = 434;
-            }
-            nextWidth += -640;
-            document.querySelector('.feedbacks').style.marginLeft = nextWidth + 'px'; 
-        },3000);
-
-    </script>
+    setInterval(function() {
+        if (nextWidth <= -4046) {
+            nextWidth = 434;
+        }
+        nextWidth += -640;
+        document.querySelector('.feedbacks').style.marginLeft = nextWidth + 'px';
+    }, 3000);
+</script>
+</div>
 </body>
 
 </html>

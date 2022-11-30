@@ -18,7 +18,7 @@
             ?>
                 <tr>
                     <td><?php echo $comment['id'] ?></td>
-                    <td><?php echo $comment['user_name'] ?></td>
+                    <td><?php echo $comment['ful_name'] ?></td>
                     <td><?php echo $comment['name'] ?></td>
                     <td><?php echo $comment['content'] ?></td>
                     <td><?php echo $comment['time'] ?></td>

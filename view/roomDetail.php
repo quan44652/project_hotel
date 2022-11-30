@@ -1,3 +1,24 @@
+<?php require('./header.php'); ?>
+<div class="banner_img">
+    <img style="height:40vh ;" src="../public/banner/banner1.jpg" alt="">
+</div>
+<div class="banner__content">
+    <div class="seaarch_room">
+        <form action="../view/model.php?act=detail" method="post">
+            <div class="form_group">
+                <label>Check-In</label>
+                <input name="checkin" type="date" placeholder="Check-In Date" value="<?php if (isset($_SESSION['search_history'])) echo $_SESSION['search_history'][0] ?>" min="<?php echo $minDate ?>">
+            </div>
+            <div class="form_group">
+                <label>Check-Out</label>
+                <input name="checkout" type="date" placeholder="Check-Out Date" value="<?php if (isset($_SESSION['search_history'])) echo $_SESSION['search_history'][1] ?>" min="<?php echo $minDate ?>">
+            </div>
+        </form>
+    </div>
+
+</div>
+</section>
+
 
 <section class="roomDetail section-m1">
     <div class="Sign-room--img col-6">
@@ -35,35 +56,21 @@
                     <span>Size: 35m<sup>2</sup></span>
                 </li>
             </ul>
-            <h1> <?php echo $room['name'] ?></h1>
+            <h1><?php echo $room['name'] ?></h1>
             <p>
                 <?php echo $room['description'] ?>
             </p>
             <div class="room-book">
-                <p><span>$<?php echo $room['price'] ?></span> Per Night</p>
+                <p><span><?php echo $room['price'] ?>.VNĐ</span> / Đêm</p>
             </div>
         </div>
         <div class="seaarch_room">
-            <form action="./model.php?act=detail" method="post">
-                <div class="form_group">
-                    <label>Check-In</label>
-                    <input name="start_date" type="date" placeholder="Check-In Date">
-                </div>
-                <div class="form_group">
-                    <label>Check-Out</label>
-                    <input name="end_date" type="date" placeholder="Check-Out Date">
-                </div>
+            <form action="../view/model.php?act=detail" method="POST">
+                <input type="hidden" name="booking_id" value="<?php echo $booking['booking_id'] ?>">
+                <input type="hidden" name="start_date" value="<?php echo $_SESSION['search_history'][0] ?>">
+                <input type="hidden" name="end_date" value="<?php echo $_SESSION['search_history'][1] ?>">
                 <input type="hidden" name="room_id" value="<?php echo $room['room_id'] ?>">
-                <div class="form_group">
-                    <label>People</label>
-                    <select name="" id="">
-                        <option value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                        <option value="">4</option>
-                    </select>
-                </div>
-                <button type="submit" name="submit" class="btn">Book Now</button>
+                <button name="submit" type="submit" class="btn">Book Now</button>
             </form>
         </div>
     </div>
@@ -120,3 +127,6 @@
         </div>
     </div>
 </section>
+
+
+<?php require('./footer.php'); ?>

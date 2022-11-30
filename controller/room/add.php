@@ -20,6 +20,11 @@
                             <span class="form-message"></span>
                         </div>
                         <div class="form-group ">
+                            <label for="" class="form-lable">image_id</label>
+                            <input name="roomImage_id" id="fullname" type="text">
+                            <span class="form-message"></span>
+                        </div>
+                        <div class="form-group ">
                             <label for="" class="form-lable">Kiểu phòng</label>
                            <select name="cate_id" id="">
                            <option value="">Chọn kiểu phòng</option>

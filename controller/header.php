@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,10 +36,10 @@
                                 fa-list"></i></span>
                                                 <span class="navnar_title">Kind of room</span>
                                         </a></li>
-                                <li><a class="navbar__link" href="./index.php?act=order">
+                                <li><a class="navbar__link" href="./index.php?act=pay">
                                                 <span class="navnar_icon"><i class="fa-solid
                                 fa-book"></i></span>
-                                                <span class="navnar_title">Booking</span>
+                                                <span class="navnar_title">Booked</span>
                                         </a></li>
                                 <li><a class="navbar__link" href="./index.php?act=comment">
                                                 <span class="navnar_icon"><i class="fa-solid
@@ -54,7 +55,7 @@
                                                 <span class="navnar_icon"><i class="fa-solid fa-image"></i></span>
                                                 <span class="navnar_title">Image Room</span>
                                         </a></li>
-                                <li><a class="navbar__link" href="">
+                                <li><a class="navbar__link" href="../view/model.php?act=logout">
                                                 <span class="navnar_icon"><i class="fa-solid
                                 fa-right-from-bracket"></i></span>
                                                 <span class="navnar_title">Sign Out</span>
