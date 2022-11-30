@@ -30,7 +30,6 @@
                                 <input name="password" id="fullname" type="text">
                                 <span class="form-message"></span>
                             </div> 
-                            <p>Bạn đã quên mật khẩu? <a href="../view/model.php?act=forget">Quên mật khẩu</a></p>
                             <button type="submit" name="submit" class="btn3">Đăng nhập</button>
                         </form>
                     </div>

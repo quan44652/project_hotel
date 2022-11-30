@@ -21,7 +21,7 @@
 
                 <div class="modal ">
                     <?php
-                    if (isset($_SESSION['user'])) {
+                    if (isset($_SESSION['user']) && $_SESSION['user']['role'] == 1) {
                     ?>
                         <div class="modal_item">
                             <div class="modal_img">
@@ -29,6 +29,20 @@
                             </div>
                             <ul class="modal_content">
                                 <li><a href="">Phòng đã đặt</a></li>
+                                <li><a href="">Thông tin tài khoản</a></li>
+                                <li><a href="">Đổi mật khẩu</a></li>
+                                <li><a href="./model.php?act=logout">Đăng xuất</a></li>
+                            </ul>
+                        </div>
+                    <?php
+                    } else if(isset($_SESSION['user']) && $_SESSION['user']['role'] == 2) {
+                        ?>
+                        <div class="modal_item">
+                            <div class="modal_img">
+                                <img src="../public/feedback/user.png" width="50px" height="50px" alt="">
+                            </div>
+                            <ul class="modal_content">
+                                <li><a href="../manager.html">Trang quản lý</a></li>
                                 <li><a href="">Thông tin tài khoản</a></li>
                                 <li><a href="">Đổi mật khẩu</a></li>
                                 <li><a href="./model.php?act=logout">Đăng xuất</a></li>

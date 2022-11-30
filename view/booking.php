@@ -37,7 +37,6 @@
     </div>
     <div class="client">
         <h1>Kiểm tra lại thông tin của bạn</h1>
-        <?php print_r($_SESSION['user']) ?>
         <p>Họ và tên: <span><?php echo $_SESSION['user']['ful_name'] ?></span></p>
         <p>Số điện thoại: <span><?php echo $_SESSION['user']['phone'] ?></span></p>
         <p>Email: <span><?php echo $_SESSION['user']['email'] ?></span></p>
@@ -49,4 +48,4 @@
     </div>
 </div>
 
-<?php require ('./footer.php') ?>;
+<?php require ('./footer.php') ?>

@@ -4,18 +4,16 @@
 </div>
 <div class="banner__content">
     <div class="seaarch_room">
-        <form action="">
+        <form action="../view/model.php?act=rooms" method="post">
             <div class="form_group">
                 <label>Check-In</label>
-                <input name="checkin" type="date" placeholder="Check-In Date" value="<?php if (isset($_SESSION['search_history']))
-                                                                                            echo $_SESSION['search_history'][0] ?>">
+                <input name="checkin" type="date" placeholder="Check-In Date" value="<?php if (isset($_SESSION['search_history'])) echo $_SESSION['search_history'][0] ?>" min="<?php echo $minDate ?>">
             </div>
             <div class="form_group">
                 <label>Check-Out</label>
-                <input type="date" placeholder="Check-Out Date" value="<?php if (isset($_SESSION['search_history']))
-                                                                            echo $_SESSION['search_history'][1] ?>">
+                <input name="checkout" type="date" placeholder="Check-Out Date" value="<?php if (isset($_SESSION['search_history'])) echo $_SESSION['search_history'][1] ?>" min="<?php echo $minDate ?>">
             </div>
-            <button class="btn"><a href="./rooms.html">Tìm kiếm</a></button>
+            <button type="submit" name="submit" class="btn"> Tìm kiếm</button>
         </form>
     </div>
 
@@ -25,38 +23,38 @@
 <section style="padding-top: 0;" class="place section-m1">
     <div class="room_container slider">
         <div class="room-width row">
-           
+
             <?php foreach ($listRoom as $room) {
-                    ?>
-             <div class="room-item col-4">
-                <div class="room">
-                    <div class="room-img">
-                        <img src="../controller/<?php echo $room['image'] ?>" alt="">
-                    </div>
-                    <div class="room-content">
-                        <ul class="room-space">
-                            <li>
-                                <i class="fa-solid fa-bed"></i>
-                                <span>Adult: 2</span>
-                            </li>
-                            <li>
-                                <i class="fa-solid fa-square"></i>
-                                <span>Size: 35m<sup>2</sup></span>
-                            </li>
-                        </ul>
-                        <h1><?php echo $room['name'] ?></h1>
-                        <p>
-                        <?php echo $room['description'] ?>
-                        </p>
-                        <div class="room-book">
-                            <p><span>   <?php echo $room['price'] ?>VNĐ</span> / Đêm</p>
-                            <a href="../view/model.php?act=detail&id= <?php echo $room['room_id'] ?>"><button class="btn">Book Now</button></a>
+            ?>
+                <div class="room-item col-4">
+                    <div class="room">
+                        <div class="room-img">
+                            <img src="../controller/<?php echo $room['image'] ?>" alt="">
+                        </div>
+                        <div class="room-content">
+                            <ul class="room-space">
+                                <li>
+                                    <i class="fa-solid fa-bed"></i>
+                                    <span>Adult: 2</span>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-square"></i>
+                                    <span>Size: 35m<sup>2</sup></span>
+                                </li>
+                            </ul>
+                            <h1><?php echo $room['name'] ?></h1>
+                            <p>
+                                <?php echo $room['description'] ?>
+                            </p>
+                            <div class="room-book">
+                                <p><span> <?php echo $room['price'] ?>VNĐ</span> / Đêm</p>
+                                <a href="../view/model.php?act=detail&id=<?php echo $room['room_id']?>&id_img=<?php echo $room['roomImage_id']?>"><button class="btn">Book Now</button></a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             <?php
-                    }
+            }
             ?>
         </div>
 
