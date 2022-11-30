@@ -55,7 +55,7 @@
                                                 <span class="navnar_icon"><i class="fa-solid fa-image"></i></span>
                                                 <span class="navnar_title">Image Room</span>
                                         </a></li>
-                                <li><a class="navbar__link" href="../view/model.php?act=logout">
+                                <li><a class="navbar__link" href="../view/model.php?act=home">
                                                 <span class="navnar_icon"><i class="fa-solid
                                 fa-right-from-bracket"></i></span>
                                                 <span class="navnar_title">Sign Out</span>
