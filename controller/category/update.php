@@ -7,7 +7,7 @@
                         <div class="form-group">
                             <label for="" class="form-lable">Tên Kiểu phòng</label>
                             <input name="cate_name" id="fullname" type="text" value="<?php if(!empty($cate['cate_name'])) echo $cate['cate_name'] ?>">
-                            <input name="id" type="hidden">
+                            <input name="id" type="hidden" value="<?php if(!empty($cate['cate_id'])) echo $cate['cate_id'] ?>">
                             <span class="form-message"></span>
                         </div>
                         <button name="submit" type="submit" class="btn">Sửa</button>

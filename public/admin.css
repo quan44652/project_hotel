@@ -211,4 +211,13 @@ input[type="file"] {
    padding-top: 4px;
 }
 
+.booking {
+    display: flex;
+     margin-bottom: 40px;
+}
+
+.booking li {
+    margin-right: 32px;
+    list-style: none;
+}
 

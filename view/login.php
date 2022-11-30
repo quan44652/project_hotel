@@ -14,38 +14,22 @@
     <body>
         <div class="modal-section ">
             <div class="modal_overlay">
-                <div id="signUp" class="auth_form ">
+                <div class="auth_form ">
                     <div class="auth_form__container">
-                        <h4>Đăng ký tài khoản</h4>
-                        <p>Bạn đã có tài khoản? <span class="signIn3">Đăng nhập</span></p>
-                        <form action="">
+                        <h4>Đăng nhập</h4>
+                        <p>Bạn đã có tài khoản? <a href="../view/model.php?act=resgeter">Đăng ký</a> | <a href="../view/model.php?act=home">Trở về</a></p>
+                        <form action="../view/model.php?act=login" method="post">
                             <div class="form-group">
-                                <label for="" class="form-lable">Tên đầy đủ</label>
-                                <input id="fullname" type="text">
+                                <label for="" class="form-lable">Email</label>
+                                <input name="email" id="fullname" value="<?php if(!empty($email)) echo $email ?>" type="text">
                                 <span class="form-message"></span>
                             </div>
                             <div class="form-group ">
                                 <label for="" class="form-lable">Mật khẩu</label>
-                                <input id="fullname" type="text">
+                                <input name="password" id="fullname" type="text">
                                 <span class="form-message"></span>
-                            </div>
-                            <div class="form-group ">
-                                <label for="" class="form-lable">Nhập lại mật
-                                    khẩu</label>
-                                <input id="fullname" type="text">
-                                <span class="form-message"></span>
-                            </div>
-                            <div class="form-group ">
-                                <label for="" class="form-lable">Email</label>
-                                <input id="fullname" type="text">
-                                <span class="form-message"></span>
-                            </div>
-                            <div class="form-group ">
-                                <label for="" class="form-lable">Phone</label>
-                                <input id="fullname" type="text">
-                                <span class="form-message"></span>
-                            </div>
-                            <button class="btn3">Đăng ký</button>
+                            </div> 
+                            <button type="submit" name="submit" class="btn3">Đăng nhập</button>
                         </form>
                     </div>
                 </div>
