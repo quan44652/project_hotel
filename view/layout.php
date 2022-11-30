@@ -1,4 +1,5 @@
-<?php include('./header.php'); ?>
+<?php include('./header.php');
+?>
 
             <div class="banner_img">
                 <img src="../public/banner/banner1.jpg" alt="">
@@ -22,11 +23,11 @@
                     <form action="../view/model.php?act=home" method="post">
                         <div class="form_group">
                             <label>Check-In</label>
-                            <input name="checkin" type="date" placeholder="Check-In Date">
+                            <input name="checkin" type="date" placeholder="Check-In Date" min="2022-11-30">
                         </div>
                         <div class="form_group">
                             <label>Check-Out</label>
-                            <input name="checkout" type="date" placeholder="Check-Out Date">
+                            <input name="checkout" type="date" placeholder="Check-Out Date" min="2022-11-30">
                         </div>
                         <button type="submit" name="submit" class="btn"> Tìm kiếm</button>
                     </form>
