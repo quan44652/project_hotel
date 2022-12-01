@@ -9,8 +9,9 @@ if ($date['mday'] < 10) {
 } else {
     $today =  $date['mday'];
 }
-$today = [$date['year'], $date['mon'], $date['mday']];
-$minDate = implode('-', $today);
+echo $today;
+$getToday = [$date['year'], $date['mon'], $today];
+$minDate = implode('-', $getToday);
 // }
 if (!isset($_SESSION['search_history'])) {
     $_SESSION['search_history'] = array();
