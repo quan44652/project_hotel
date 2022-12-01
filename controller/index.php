@@ -29,7 +29,9 @@ if (isset($_GET['act'])) {
             if (isset($_POST['submit'])) {
                 $cate_name = $_POST['cate_name'];
                 $id = $_POST['id'];
-                $sql = "UPDATE categories set cate_name = '$cate_name' where cate_id = '$id'";
+                echo $cate_name;
+                echo $id;
+                $sql = "UPDATE categories set cate_name = '{$cate_name}' where cate_id = '{$id}'";
                 pdo_execute($sql);
                 $messager = "Sửa thành công";
             }
@@ -56,12 +58,13 @@ if (isset($_GET['act'])) {
                 $name = $_POST['name'];
                 $price = $_POST['price'];
                 $desc = $_POST['desc'];
+                $roomImage_id = $_POST['roomImage_id'];
                 $cate_id = $_POST['cate_id'];
                 $target_dir = "./room/img/";
                 $image = $target_dir . basename($_FILES["image"]["name"]);
                 move_uploaded_file($_FILES["image"]["tmp_name"], $image);
-                $sql = "INSERT INTO `rooms` (`cate_id`, `price`, `name`, `description`, `image`)
-                         VALUES ('$cate_id', '$price', '{$name}', '$desc', '$image')";
+                $sql = "INSERT INTO `rooms` (`cate_id`, `price`, `name`, `description`, `roomImage_id`, `image`)
+                         VALUES ('$cate_id', '$price', '{$name}', '$desc','$roomImage_id', '$image')";
                 pdo_execute($sql);
                 $messager = "Thêm thành công";
             }
@@ -79,16 +82,60 @@ if (isset($_GET['act'])) {
             require "../controller/room/room.php";
             break;
         case 'order':
+            if (isset($_GET['id'])) {
+                $status = 3;
+                $sql = "UPDATE booking_detail set `status` = '$status' where id = '{$_GET['id']}'";
+                pdo_execute($sql);
+            }
+            $sql = "SELECT `booking`.`booking_id` as `booking_id`,`booking_detail`.`room_id` as `room_id`,`booking_detail`.`status` as `status`,`booking_detail`.`id` as `id`,`booking_detail`.`start_date` as `start_date`,`booking_detail`.`end_date` as `end_date`,`user`.`ful_name` as `ful_name`,`user`.`phone` as `phone`,`rooms`.`price` as `price` from `booking_detail` , `booking` , `user` , `rooms` where `booking_detail`.`booking_id` = `booking`.`booking_id` and `user`.`user_id` = `booking`.`user_id`and `booking_detail`.`room_id` = `rooms`.`room_id`";
+            $listbook = pdo_query($sql);
+            require "../controller/order/order.php";
+            break;
+        case 'checkin':
+            if (isset($_GET['id'])) {
+                $status = 1;
+                $sql = "UPDATE booking_detail set `status` = '$status' where id = '{$_GET['id']}'";
+                pdo_execute($sql);
+            }
+            $sql = "SELECT `booking`.`booking_id` as `booking_id`,`booking_detail`.`room_id` as `room_id`,`booking_detail`.`status` as `status`,`booking_detail`.`id` as `id`,`booking_detail`.`start_date` as `start_date`,`booking_detail`.`end_date` as `end_date`,`user`.`ful_name` as `ful_name`,`user`.`phone` as `phone`,`rooms`.`price` as `price` from `booking_detail` , `booking` , `user` , `rooms` where `booking_detail`.`booking_id` = `booking`.`booking_id` and `user`.`user_id` = `booking`.`user_id`and `booking_detail`.`room_id` = `rooms`.`room_id`";
+            $listbook = pdo_query($sql);
+            require "../controller/order/checkin.php";
+            break;
+        case 'checkout':
+            if (isset($_GET['id'])) {
+                $status = 2;
+                $sql = "UPDATE booking_detail set `status` = '$status' where id = '{$_GET['id']}'";
+                pdo_execute($sql);
+            }
+            $sql = "SELECT `booking`.`booking_id` as `booking_id`,`booking_detail`.`room_id` as `room_id`,`booking_detail`.`status` as `status`,`booking_detail`.`id` as `id`,`booking_detail`.`start_date` as `start_date`,`booking_detail`.`end_date` as `end_date`,`user`.`ful_name` as `ful_name`,`user`.`phone` as `phone`,`rooms`.`price` as `price` from `booking_detail` , `booking` , `user` , `rooms` where `booking_detail`.`booking_id` = `booking`.`booking_id` and `user`.`user_id` = `booking`.`user_id`and `booking_detail`.`room_id` = `rooms`.`room_id`";
+            $listbook = pdo_query($sql);
+            require "../controller/order/checkout.php";
+            break;
+        case 'pay':
+            $sql = "SELECT `booking`.`booking_id` as `booking_id`,`booking_detail`.`room_id` as `room_id`,`booking_detail`.`status` as `status`,`booking_detail`.`id` as `id`,`booking_detail`.`start_date` as `start_date`,`booking_detail`.`end_date` as `end_date`,`user`.`ful_name` as `ful_name`,`user`.`phone` as `phone`,`rooms`.`price` as `price` from `booking_detail` , `booking` , `user` , `rooms` where `booking_detail`.`booking_id` = `booking`.`booking_id` and `user`.`user_id` = `booking`.`user_id`and `booking_detail`.`room_id` = `rooms`.`room_id`";
+            $listbook = pdo_query($sql);
+            require "../controller/order/pay.php";
+            break;
+        case 'delete_order':
+            if (isset($_GET['id'])) {
+                $sql = "DELETE FROM `booking` WHERE `booking_id` = '{$_GET['id']}'";
+                pdo_execute($sql);
+            }
             $sql = "SELECT `booking`.`booking_id` as `booking_id`,`booking_detail`.`room_id` as `room_id`,`booking_detail`.`start_date` as `start_date`,`booking_detail`.`end_date` as `end_date`,`user`.`user_name` as `user_name`,`user`.`phone` as `phone` from `booking_detail` , `booking` , `user` where `booking_detail`.`booking_id` = `booking`.`booking_id` and `user`.`user_id` = `booking`.`user_id`";
             $listbook = pdo_query($sql);
             require "../controller/order/order.php";
             break;
         case 'comment':
-            $sql = "SELECT `comment`.`content` as  `content`,`comment`.`id` as  `id`, `comment`.`time` as  `time`,`rooms`.`name` as  `name`,`user`.`user_name` as `user_name` from `comment` , `user` , `rooms` where `comment`.`user_id` = `user`.`user_id` and `comment`.`room_id` = `rooms`.`room_id`  ORDER BY `id` DESC";
+            $sql = "SELECT `comment`.`content` as  `content`,`comment`.`id` as  `id`, `comment`.`time` as  `time`,`rooms`.`name` as  `name`,`user`.`ful_name` as `ful_name` from `comment` , `user` , `rooms` where `comment`.`user_id` = `user`.`user_id` and `comment`.`room_id` = `rooms`.`room_id`  ORDER BY `id` DESC";
             $listComment = pdo_query($sql);
             require "../controller/comment/comment.php";
             break;
         case 'staff':
+            if (isset($_GET['id'])) {
+                $role = 2;
+                $sql = "UPDATE user set `role` = '$role' where `user_id` = '{$_GET['id']}'";
+                pdo_execute($sql);
+            }
             $sql = "SELECT * from user";
             $listUser = pdo_query($sql);
             require "../controller/staff/staff.php";
@@ -108,7 +155,6 @@ if (isset($_GET['act'])) {
             require "../controller/user/user.php";
             break;
         case 'detete_user':
-            echo 1231231231313;
             if (isset($_GET['id'])) {
                 $sql = "DELETE FROM `user` WHERE `user_id` = '{$_GET['id']}'";
                 pdo_execute($sql);
@@ -118,13 +164,15 @@ if (isset($_GET['act'])) {
             require "../controller/user/user.php";
             break;
         case 'image':
-            // $sql = "SELECT  `room_image`.`image1` as `image1`,`room_image`.`image2` as `image2`, `room_image`.`image3` as `image3`,`room_image`.`image4` as `image4`,`room_image`.`image5` as `image5`,`rooms`.`room_id` as `room_id` from `rooms` , `room_image` where `room_image`.`roomImage_id` = `rooms`.`roomImage_id` ";
-            $sql = "SELECT * from room_image";
+            $sql = "SELECT  `room_image`.`image1` as `image1`,`room_image`.`image2` as `image2`, `room_image`.`image3` as `image3`,`room_image`.`image4` as `image4`,`room_image`.`image5` as `image5`,`rooms`.`room_id` as `room_id` from `rooms` , `room_image` where `room_image`.`roomImage_id` = `rooms`.`roomImage_id` ";
+            // $sql = "SELECT * from room_image";
             $listImage = pdo_query($sql);
             require "../controller/image_room/image.php";
             break;
         case 'add_img':
+           if(isset($_GET['id'])) {
             if (isset($_POST['submit'])) {
+                $roomImage_id = $_GET['id'];
                 $target_dir = "./image_room/img/";
                 $image1 = $target_dir . basename($_FILES["image1"]["name"]);
                 move_uploaded_file($_FILES["image1"]["tmp_name"], $image1);
@@ -136,21 +184,32 @@ if (isset($_GET['act'])) {
                 move_uploaded_file($_FILES["image4"]["tmp_name"], $image4);
                 $image5 = $target_dir . basename($_FILES["image5"]["name"]);
                 move_uploaded_file($_FILES["image5"]["tmp_name"], $image5);
-                $sql = "INSERT INTO `room_image` (`image1`, `image2`, `image3`, `image4`,`image5`)
-                         VALUES ('$image1', '{$image2}', '$image3', '$image4','{$image5}')";
+                $sql = "INSERT INTO `room_image` (`image1`, `image2`, `image3`, `image4`,`image5`,`roomImage_id`)
+                         VALUES ('$image1', '{$image2}', '$image3', '$image4','{$image5}','{$roomImage_id}')";
                 pdo_execute($sql);
                 $messager = "Thêm thành công";
             }
-            $sql = "SELECT * from rooms where roomImage_id = '{$_GET['id']}'";
-            $listRoom = pdo_query($sql);
+           }
+            // $sql = "SELECT * from rooms where roomImage_id = '{$_GET['id']}'";
+            // $listRoom = pdo_query($sql);
             require "../controller/image_room/add.php";
             break;
+<<<<<<< HEAD
             case 'pay_oder':
                 $sql = "SELECT `booking`.`booking_id` as `booking_id`,`booking_detail`.`room_id` as `room_id`,`booking_detail`.`start_date` as `start_date`,`booking_detail`.`end_date` as `end_date`,`user`.`user_name` as `user_name`,`user`.`phone` as `phone` from `booking_detail` , `booking` , `user` where `booking_detail`.`booking_id` = `booking`.`booking_id` and `user`.`user_id` = `booking`.`user_id`";
             $listbook = pdo_query($sql);
             require "../controller/thanhtoan/thanhtoan.php";
+=======
+        case 'detete_image':
+            if (isset($_GET['id'])) {
+                $sql = "DELETE FROM room_image WHERE roomImage_id  = '{$_GET['id']}'";
+                pdo_execute($sql);
+            }
+            $sql = "SELECT * from room_image";
+            $listImage = pdo_query($sql);
+            require "../controller/image_room/image.php";
+>>>>>>> 8b0869ebb0128ba7f326d385f7f119968ab73155
             break;
     }
 }
-include('../controller/footer.php')
-    ?>
+include('../controller/footer.php');
