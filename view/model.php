@@ -4,6 +4,11 @@ session_start();
 include('../model/pdo.php');
 // if (!isset($_SESSION['user'])) {
 $date = getdate();
+if ($date['mday'] < 10) {
+    $today =  "0" . $date['mday'];
+} else {
+    $today =  $date['mday'];
+}
 $today = [$date['year'], $date['mon'], $date['mday']];
 $minDate = implode('-', $today);
 // }
