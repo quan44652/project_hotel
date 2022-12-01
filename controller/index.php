@@ -194,12 +194,6 @@ if (isset($_GET['act'])) {
             // $listRoom = pdo_query($sql);
             require "../controller/image_room/add.php";
             break;
-<<<<<<< HEAD
-            case 'pay_oder':
-                $sql = "SELECT `booking`.`booking_id` as `booking_id`,`booking_detail`.`room_id` as `room_id`,`booking_detail`.`start_date` as `start_date`,`booking_detail`.`end_date` as `end_date`,`user`.`user_name` as `user_name`,`user`.`phone` as `phone` from `booking_detail` , `booking` , `user` where `booking_detail`.`booking_id` = `booking`.`booking_id` and `user`.`user_id` = `booking`.`user_id`";
-            $listbook = pdo_query($sql);
-            require "../controller/thanhtoan/thanhtoan.php";
-=======
         case 'detete_image':
             if (isset($_GET['id'])) {
                 $sql = "DELETE FROM room_image WHERE roomImage_id  = '{$_GET['id']}'";
@@ -208,7 +202,6 @@ if (isset($_GET['act'])) {
             $sql = "SELECT * from room_image";
             $listImage = pdo_query($sql);
             require "../controller/image_room/image.php";
->>>>>>> 8b0869ebb0128ba7f326d385f7f119968ab73155
             break;
     }
 }
