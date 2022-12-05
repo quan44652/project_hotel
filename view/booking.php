@@ -21,6 +21,7 @@
 </div>
 </section>
 <div class="booking_success section-m2">
+        <!-- strtotime = chuyển số thành số nguyên , là timestamp của time đó -->
     <div class="booking_room">
         <?php
         $start_date = strtotime($_SESSION['search_history'][0]);
