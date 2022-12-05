@@ -14,7 +14,7 @@
 <body>
     <div class="container">
         <section class="banner">
-            <header class="header">
+            <header class="header" >
                 <div class="logo">
                     <a href="../view/model.php?act=home"><img src="../public/logo/logo-w.svg" alt=""></a>
                 </div>
