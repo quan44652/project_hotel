@@ -64,7 +64,10 @@
                 <p><span><?php echo $room['price'] ?>.VNĐ</span> / Đêm</p>
             </div>
         </div>
-        <div class="seaarch_room">
+       <?php
+       if(isset($_SESSION['user'])) {
+        ?>
+         <div class="seaarch_room">
             <form action="../view/model.php?act=detail" method="POST">
                 <input type="hidden" name="booking_id" value="<?php echo $booking['booking_id'] ?>">
                 <input type="hidden" name="start_date" value="<?php echo $_SESSION['search_history'][0] ?>">
@@ -73,6 +76,13 @@
                 <button name="submit" type="submit" class="btn">Book Now</button>
             </form>
         </div>
+        <?php
+       } else {
+        ?>
+        <h1 style="padding: 50px 20px;">Bạn cần đăng nhập để đặt phòng!</h1>
+        <?php
+       }
+       ?>
     </div>
 
 </section>

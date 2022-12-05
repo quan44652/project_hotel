@@ -67,14 +67,39 @@
 
 <script src="../public/main.js"></script>
 <script>
-    var nextWidth = 434;
+       var checkin = document.getElementById('checkin');
+        var checkout = document.getElementById('checkout');
+
+        var getCheckIn =new Array();
+        var getCheckOut =new Array();
+     
+        checkin.onchange = function () {
+                getCheckIn.push(checkin.value);
+                var date = getCheckIn[getCheckIn.length - 1]
+                checkout.min = date;
+                console.log(getCheckIn[getCheckIn.length - 1]);
+            }
+         
+
+            // var array = [checkin()];
+           
+           
+            checkout.onchange = function () {
+               
+                getCheckOut.push(checkout.value);
+                var date = getCheckOut[getCheckOut.length - 1];
+                checkin.max = date;
+                console.log(getCheckOut[getCheckOut.length - 1]);
+            }
+           
+    var nextWidth2 = 434;
 
     setInterval(function() {
-        if (nextWidth <= -4046) {
-            nextWidth = 434;
+        if (nextWidth2 <= -4046) {
+            nextWidth2 = 434;
         }
-        nextWidth += -640;
-        document.querySelector('.feedbacks').style.marginLeft = nextWidth + 'px';
+        nextWidth2 += -640;
+        document.querySelector('.feedbacks').style.marginLeft = nextWidth2 + 'px';
     }, 3000);
 </script>
 <script>
@@ -129,13 +154,13 @@
         document.querySelector('.slides').style.marginLeft = nextWidth + 'px';
     }, 3000);
 
-    setInterval(function() {
-        if (nextWidth <= -4046) {
-            nextWidth = 434;
-        }
-        nextWidth += -640;
-        document.querySelector('.feedbacks').style.marginLeft = nextWidth + 'px';
-    }, 3000);
+    // setInterval(function() {
+    //     if (nextWidth <= -4046) {
+    //         nextWidth = 434;
+    //     }
+    //     nextWidth += -640;
+    //     document.querySelector('.feedbacks').style.marginLeft = nextWidth + 'px';
+    // }, 3000);
 </script>
 </div>
 </body>

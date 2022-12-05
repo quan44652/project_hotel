@@ -9,7 +9,6 @@ if ($date['mday'] < 10) {
 } else {
     $today =  $date['mday'];
 }
-echo $today;
 $getToday = [$date['year'], $date['mon'], $today];
 $minDate = implode('-', $getToday);
 // }
@@ -30,19 +29,20 @@ if (isset($_GET['act'])) {
                 $image = pdo_query_one($sql);
             }
 
-            if ($_SESSION['user']) {
+            if (isset($_SESSION['user'])) {
                 $sql = "SELECT * from booking where `user_id` = '{$_SESSION['user']['user_id']}'";
                 $booking = pdo_query_one($sql);
             }
 
             if (isset($_POST['submit'])) {
-                $booking_id = $_POST['booking_id'];
-                $start_date = $_POST['start_date'];
-                $end_date = $_POST['end_date'];
+                // $booking_id = $_POST['booking_id'];
+                // $start_date = $_POST['start_date'];
+                // $end_date = $_POST['end_date'];
+                // $room_id = $_POST['room_id'];
+                // $status = 0;
+                // $sql = "INSERT into booking_detail(`booking_id`,`start_date`,`end_date`,`room_id`,`status`) value ('{$booking_id}','{$start_date}','{$end_date}','{$room_id}','{$status}')";
+                // pdo_execute($sql);
                 $room_id = $_POST['room_id'];
-                $status = 0;
-                $sql = "INSERT into booking_detail(`booking_id`,`start_date`,`end_date`,`room_id`,`status`) value ('{$booking_id}','{$start_date}','{$end_date}','{$room_id}','{$status}')";
-                pdo_execute($sql);
                 header("location: ./model.php?act=booking&id=$room_id");
             }
             require('./roomDetail.php');
@@ -76,6 +76,7 @@ if (isset($_GET['act'])) {
                 // chuyển đổi mảng -> string
                 $isset_room_id = implode(',', $empty_room);
                 $_SESSION['search_history'] = [$checkin, $checkout, $isset_room_id];
+               
                 header('location: ./model.php?act=rooms');
             }
 
@@ -112,8 +113,10 @@ if (isset($_GET['act'])) {
             }
             if (isset($_SESSION['search_history'])) {
                 $isset_room_id = $_SESSION['search_history'][2];
+                if($isset_room_id != "") {
                 $sql = "SELECT * FROM `rooms` WHERE room_id IN ({$isset_room_id})";
                 $listRoom = pdo_query($sql);
+                }
             }
 
             require('./rooms.php');
@@ -126,6 +129,12 @@ if (isset($_GET['act'])) {
             require('./booking.php');
             break;
         case 'booked':
+            if(isset($_GET['message=Successful.'])) {
+                echo 123;
+            }
+            else {
+                echo 444; 
+            }
             require('./booked.php');
             break;
         case 'login':
