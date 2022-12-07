@@ -25,10 +25,11 @@
                     ?>
                         <div class="modal_item">
                             <div class="modal_img">
-                                <img src="../public/feedback/user.png" width="50px" height="50px" alt="">
+                                <img src="../public/feedback/user.png" width="60px" height="60px" alt="">
+                                <p>Xin chào: <br> <span><?php echo $_SESSION['user']['ful_name'] ?></span></p>
                             </div>
                             <ul class="modal_content">
-                                <li><a href="">Phòng đã đặt</a></li>
+                                <li><a href="./model.php?act=history_booked">Phòng đã đặt</a></li>
                                 <li><a href="">Thông tin tài khoản</a></li>
                                 <li><a href="">Đổi mật khẩu</a></li>
                                 <li><a href="./model.php?act=logout">Đăng xuất</a></li>
@@ -39,10 +40,12 @@
                         ?>
                         <div class="modal_item">
                             <div class="modal_img">
-                                <img src="../public/feedback/user.png" width="50px" height="50px" alt="">
+                                <img src="../public/feedback/user.png" width="60px" height="60px" alt="">
+                                <p>Xin chào: <br> <span><?php echo $_SESSION['user']['ful_name'] ?></span></p>
                             </div>
                             <ul class="modal_content">
                                 <li><a href="../manager.html">Trang quản lý</a></li>
+                                <li><a href="./model.php?act=history_booked">Phòng đã đặt</a></li>
                                 <li><a href="">Thông tin tài khoản</a></li>
                                 <li><a href="">Đổi mật khẩu</a></li>
                                 <li><a href="./model.php?act=logout">Đăng xuất</a></li>

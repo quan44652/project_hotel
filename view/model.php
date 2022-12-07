@@ -34,21 +34,21 @@ if (isset($_GET['act'])) {
                 $booking = pdo_query_one($sql);
             }
 
+
             if (isset($_POST['submit'])) {
-                // $booking_id = $_POST['booking_id'];
-                // $start_date = $_POST['start_date'];
-                // $end_date = $_POST['end_date'];
-                // $room_id = $_POST['room_id'];
-                // $status = 0;
-                // $sql = "INSERT into booking_detail(`booking_id`,`start_date`,`end_date`,`room_id`,`status`) value ('{$booking_id}','{$start_date}','{$end_date}','{$room_id}','{$status}')";
-                // pdo_execute($sql);
+                $booking_id = $_POST['booking_id'];
+                $start_date = $_POST['start_date'];
+                $end_date = $_POST['end_date'];
+                $room_id = $_POST['room_id'];
+                $status = 0;
+                $sql = "INSERT into booking_detail(`booking_id`,`start_date`,`end_date`,`room_id`,`status`) value ('{$booking_id}','{$start_date}','{$end_date}','{$room_id}','{$status}')";
+                pdo_execute($sql);
                 $room_id = $_POST['room_id'];
                 header("location: ./model.php?act=booking&id=$room_id");
             }
             require('./roomDetail.php');
             break;
         case 'home':
-
             $isset_room = array();
             $is_listRoomId = array();
             if (isset($_POST['submit'])) {
@@ -61,7 +61,7 @@ if (isset($_GET['act'])) {
                 $listBook = pdo_query($sql);
                 foreach ($listBook as $book) {
                     if ($book['status'] == 1) {
-                        if (($book['start_date'] <= $checkin && $checkin < $book['end_date']) || ($book['start_date'] < $checkout && $checkout <= $book['end_date']) || ($book['start_date'] > $checkin && $book['end_date'] < $checkout)) {
+                        if (($book['start_date'] <= $checkin && $checkin <= $book['end_date']) || ($book['start_date'] <= $checkout && $checkout <= $book['end_date']) || ($book['start_date'] >= $checkin && $book['end_date'] <= $checkout)) {
                             array_push($isset_room, $book['room_id']);
                         }
                     }
@@ -76,13 +76,14 @@ if (isset($_GET['act'])) {
                 // chuyển đổi mảng -> string
                 $isset_room_id = implode(',', $empty_room);
                 $_SESSION['search_history'] = [$checkin, $checkout, $isset_room_id];
-               
+
                 header('location: ./model.php?act=rooms');
             }
 
             require('./layout.php');
             break;
         case 'rooms':
+            print_r($_SESSION['search_history']);
             $isset_room = array();
             $is_listRoomId = array();
             if (isset($_POST['submit'])) {
@@ -95,7 +96,7 @@ if (isset($_GET['act'])) {
                 $listBook = pdo_query($sql);
                 foreach ($listBook as $book) {
                     if ($book['status'] == 1) {
-                        if (($book['start_date'] <= $checkin && $checkin < $book['end_date']) || ($book['start_date'] < $checkout && $checkout <= $book['end_date']) || ($book['start_date'] > $checkin && $book['end_date'] < $checkout)) {
+                        if (($book['start_date'] <= $checkin && $checkin <= $book['end_date']) || ($book['start_date'] <= $checkout && $checkout <= $book['end_date']) || ($book['start_date'] >= $checkin && $book['end_date'] <= $checkout)) {
                             array_push($isset_room, $book['room_id']);
                         }
                     }
@@ -113,10 +114,11 @@ if (isset($_GET['act'])) {
             }
             if (isset($_SESSION['search_history'])) {
                 $isset_room_id = $_SESSION['search_history'][2];
-                if($isset_room_id != "") {
-                $sql = "SELECT * FROM `rooms` WHERE room_id IN ({$isset_room_id})";
-                $listRoom = pdo_query($sql);
-                }
+                if ($isset_room_id != "") {
+                    $sql = "SELECT * FROM `rooms` WHERE room_id  IN ({$isset_room_id})";
+                    $listRoom = pdo_query($sql);
+                } 
+                
             }
 
             require('./rooms.php');
@@ -128,14 +130,15 @@ if (isset($_GET['act'])) {
             }
             require('./booking.php');
             break;
-        case 'booked':
-            if(isset($_GET['message=Successful.'])) {
-                echo 123;
+        case 'history_booked':
+            if (isset($_SESSION['user'])) {
+                $user_id = $_SESSION['user']['user_id'];
             }
-            else {
-                echo 444; 
+            if (isset($user_id)) {
+                $sql = "SELECT `booking_detail`.`status` as `status`,`booking_detail`.`start_date` as `start_date`,`booking_detail`.`end_date` as `end_date`,`rooms`.`price` as `price`,`rooms`.`name` as `name` from booking_detail ,booking ,rooms where `booking_detail`.`booking_id` = `booking`.`booking_id` and `rooms`.`room_id` = `booking_detail`.`room_id` and `user_id` = '{$user_id}'";
+                $booked = pdo_query($sql);
             }
-            require('./booked.php');
+            require('./history_booked.php');
             break;
         case 'login':
             $stt = 0;

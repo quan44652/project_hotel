@@ -27,7 +27,6 @@
         $end_date = strtotime($_SESSION['search_history'][1]);
         $date = abs($end_date - $start_date) / (60 * 60 * 24) + 1;
         $_SESSION['booking_room'] = [$room['price'] * $date,$room['name'],$_SESSION['search_history'][0],$_SESSION['search_history'][1]];
-        print_r($_SESSION['booking_room']);
         ?>
         <h4>Xin chào <span><?php echo $_SESSION['user']['ful_name'] ?></span>!</h4>
         <h1>Đặt phòng của bạn đã được xác nhận.</h1>
