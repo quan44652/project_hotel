@@ -64,79 +64,36 @@
                 <p><span><?php echo $room['price'] ?>.VNĐ</span> / Đêm</p>
             </div>
         </div>
-       <?php
-       if(isset($_SESSION['user'])) {
-        ?>
-         <div class="seaarch_room">
-            <form action="../view/model.php?act=detail" method="POST">
-                <input type="hidden" name="booking_id" value="<?php echo $booking['booking_id'] ?>">
-                <input type="hidden" name="start_date" value="<?php echo $_SESSION['search_history'][0] ?>">
-                <input type="hidden" name="end_date" value="<?php echo $_SESSION['search_history'][1] ?>">
-                <input type="hidden" name="room_id" value="<?php echo $room['room_id'] ?>">
-                <button name="submit" type="submit" class="btn">Book Now</button>
-            </form>
-        </div>
         <?php
-       } else {
+        if (isset($_SESSION['user'])) {
         ?>
-        <h1 style="padding: 50px 20px;">Bạn cần đăng nhập để đặt phòng!</h1>
+            <div class="seaarch_room">
+                <form action="../view/model.php?act=detail" method="POST">
+                    <input type="hidden" name="booking_id" value="<?php echo $booking['booking_id'] ?>">
+                    <input type="hidden" name="start_date" value="<?php echo $_SESSION['search_history'][0] ?>">
+                    <input type="hidden" name="end_date" value="<?php echo $_SESSION['search_history'][1] ?>">
+                    <input type="hidden" name="room_id" value="<?php echo $room['room_id'] ?>">
+                    <button name="submit" type="submit" class="btn">Book Now</button>
+                </form>
+            </div>
         <?php
-       }
-       ?>
+        } else {
+        ?>
+            <h1 style="padding: 50px 20px;">Bạn cần đăng nhập để đặt phòng!</h1>
+        <?php
+        }
+        ?>
     </div>
 
 </section>
 
 
-<section class="comment section-m2">
-    <h1 class="comment-title">Feedback from our Guests</h1>
-    <form action="">
-        <textarea name="" id=""></textarea>
-        <button class="btn2">Send</button>
-    </form>
+<iframe src="./comment.php?id=<?php echo $room['room_id'] ?>" frameborder="0" width="100%" scrolling="no" onload="resizeIframe(this)"></iframe>
 
-    <div class="comment_list">
-        <div class="comment_list-item">
-            <div class="comment_list-item--avt">
-                <img src="../public/feedback/faces-1-scaled.jpg" alt="">
-            </div>
-            <div class="comment_list-item--content">
-                <h1>Quân Nguyễn</h1>
-                <span>Consectetur adipisicing elit. Nihil, illum voluptate
-                    eveniet ex fugit ea delectus, sed voluptatem. Laborum
-
-                    accusantium libero commodi id officiis itaque esse
-                    adipisci, necessitatibus asperiores, illo odio.</span>
-            </div>
-        </div>
-        <div class="comment_list-item">
-            <div class="comment_list-item--avt">
-                <img src="../public/feedback/faces-2-scaled.jpg" alt="">
-            </div>
-            <div class="comment_list-item--content">
-                <h1>Quân Nguyễn</h1>
-                <span>Consectetur adipisicing elit. Nihil, illum voluptate
-                    eveniet ex fugit ea delectus, sed voluptatem. Laborum
-
-                    accusantium libero commodi id officiis itaque esse
-                    adipisci, necessitatibus asperiores, illo odio.</span>
-            </div>
-        </div>
-        <div class="comment_list-item">
-            <div class="comment_list-item--avt">
-                <img src="../public/feedback/faces-3-scaled.jpg" alt="">
-            </div>
-            <div class="comment_list-item--content">
-                <h1>Quân Nguyễn</h1>
-                <span>Consectetur adipisicing elit. Nihil, illum voluptate
-                    eveniet ex fugit ea delectus, sed voluptatem. Laborum
-
-                    accusantium libero commodi id officiis itaque esse
-                    adipisci, necessitatibus asperiores, illo odio.</span>
-            </div>
-        </div>
-    </div>
-</section>
-
+<script>
+    function resizeIframe(obj) {
+        obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+    }
+</script>
 
 <?php require('./footer.php'); ?>

@@ -934,26 +934,33 @@ option {
 .modal:hover .modal_content {
     display: block;
     position: absolute;
-    right: 0;
+    display: block;
     transform: 1s;
 }
 
 .modal_img {
     position: relative;
+    display: flex;
 }
 
 .modal_img img {
     border-radius: 50%;
 }
 
+.modal_img p {
+    padding-left: 12px;
+    padding-top: 10px;
+}
+
 .modal_content {
     position: absolute;
     top: 80px;
-    right: -300px;
+    right: 180px;
     padding: 12px 24px;
     background-color: #33A5FF;
     border-radius: 12px;
     transition: 1s;
+    display: none;
 }
 
 .modal_content:after {
@@ -1035,4 +1042,50 @@ option {
     font-size: 18px;
     margin: 0;
     display: block;
+}
+
+.table {
+    width: 100%;
+    border: 1px solid red;
+    border-collapse: collapse;
+    table-layout: fixed;
+    white-space: nowrap;
+}
+
+table thead {
+    
+    border-left: none;
+    border-right: none;
+}
+
+table tbody tr {
+    border: 1px solid #e2e9e1;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+}
+
+table thead td {
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    height: 50px;
+    text-align: center;
+}
+
+table tbody  tr td {
+    padding: 15px;
+    text-align: center;
+}
+
+table tbody img {
+    width: 100px;
+    height: 100px;
+    border-radius: 4px;
+}
+
+.history h1 {
+    padding: 24px 0;
+    text-align: center;
+    font-size: 32px;
 }

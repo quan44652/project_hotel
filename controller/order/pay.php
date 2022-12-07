@@ -34,7 +34,7 @@
                         <td><?php echo $book['end_date'] ?></td>
                         <td><?php echo $book['phone'] ?></td>
                         <td><?php echo $book['price'] ?> .VNĐ</td>
-                        <td><a href="../controller/index.php?act=checkin&id=<?php echo $book['id'] ?>"><button class="btn update">Thanh toán</button></a></td>
+                        <td><a href="../controller/index.php?act=checkin&id=<?php echo $book['id'] ?>"><button class="btn update">Xác nhận</button></a>|<a href="../controller/index.php?act=delete_booking&id=<?php echo $book['id'] ?>"><button class="btn delete">Xóa</button></a></td>
                     </tr>
                     </tr>
             <?php

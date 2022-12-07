@@ -34,8 +34,8 @@ $secretKey = 'at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa';
 $orderInfo = "Thanh toán qua MoMo";
 $amount = $_SESSION['booking_room'][0];
 $orderId = time() ."";
-$redirectUrl = "http://localhost/project_hotel/view/model.php?act=home";
-$ipnUrl = "http://localhost/project_hotel/view/booked.php";
+$redirectUrl = "http://localhost/project_hotel0/view/model.php?act=home";
+$ipnUrl = "http://localhost/project_hotel0/view/booked.php";
 $extraData = "";
 
 
