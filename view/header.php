@@ -30,8 +30,8 @@
                             </div>
                             <ul class="modal_content">
                                 <li><a href="./model.php?act=history_booked">Phòng đã đặt</a></li>
-                                <li><a href="">Thông tin tài khoản</a></li>
-                                <li><a href="">Đổi mật khẩu</a></li>
+                                <li><a href="./model.php?act=update">Cập nhập tài khoản</a></li>
+                                <li><a href="./model.php?act=changePW">Đổi mật khẩu</a></li>
                                 <li><a href="./model.php?act=logout">Đăng xuất</a></li>
                             </ul>
                         </div>
@@ -46,8 +46,8 @@
                             <ul class="modal_content">
                                 <li><a href="../manager.html">Trang quản lý</a></li>
                                 <li><a href="./model.php?act=history_booked">Phòng đã đặt</a></li>
-                                <li><a href="">Thông tin tài khoản</a></li>
-                                <li><a href="">Đổi mật khẩu</a></li>
+                                <li><a href="./model.php?act=update">Cập nhập tài khoản</a></li>
+                                <li><a href="./model.php?act=changePW">Đổi mật khẩu</a></li>
                                 <li><a href="./model.php?act=logout">Đăng xuất</a></li>
                             </ul>
                         </div>

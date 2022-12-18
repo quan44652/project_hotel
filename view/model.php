@@ -60,7 +60,7 @@ if (isset($_GET['act'])) {
                 $sql = "SELECT * from booking_detail";
                 $listBook = pdo_query($sql);
                 foreach ($listBook as $book) {
-                    if ($book['status'] == 1) {
+                    if ($book['status'] >= 1) {
                         if (($book['start_date'] <= $checkin && $checkin <= $book['end_date']) || ($book['start_date'] <= $checkout && $checkout <= $book['end_date']) || ($book['start_date'] >= $checkin && $book['end_date'] <= $checkout)) {
                             array_push($isset_room, $book['room_id']);
                         }
@@ -83,7 +83,6 @@ if (isset($_GET['act'])) {
             require('./layout.php');
             break;
         case 'rooms':
-            print_r($_SESSION['search_history']);
             $isset_room = array();
             $is_listRoomId = array();
             if (isset($_POST['submit'])) {
@@ -95,7 +94,7 @@ if (isset($_GET['act'])) {
                 $sql = "SELECT * from booking_detail";
                 $listBook = pdo_query($sql);
                 foreach ($listBook as $book) {
-                    if ($book['status'] == 1) {
+                    if ($book['status'] >= 1) {
                         if (($book['start_date'] <= $checkin && $checkin <= $book['end_date']) || ($book['start_date'] <= $checkout && $checkout <= $book['end_date']) || ($book['start_date'] >= $checkin && $book['end_date'] <= $checkout)) {
                             array_push($isset_room, $book['room_id']);
                         }
@@ -117,8 +116,7 @@ if (isset($_GET['act'])) {
                 if ($isset_room_id != "") {
                     $sql = "SELECT * FROM `rooms` WHERE room_id  IN ({$isset_room_id})";
                     $listRoom = pdo_query($sql);
-                } 
-                
+                }
             }
 
             require('./rooms.php');
@@ -167,6 +165,9 @@ if (isset($_GET['act'])) {
                         $messager = "Sai mật khẩu";
                     }
                 }
+                else {
+                    $messager = "Tài khoản chưa tồn tại";
+                }
             }
             require('./login.php');
             break;
@@ -175,6 +176,7 @@ if (isset($_GET['act'])) {
             $listUser = pdo_query($sql);
             if (isset($_POST['submit'])) {
                 $regEmail = "/([a-z0-9_]+|[a-z0-9_]+\.[a-z0-9_]+)@(([a-z0-9]|[a-z0-9]+\.[a-z0-9]+)+\.([a-z]{2,4}))/i";
+                $regPhone = "/((09|03|07|08|05)+([0-9]{8})\b)/";
                 $full_name = $_POST['full_name'];
                 $password = $_POST['password'];
                 $comfirm_password = $_POST['comfirm_password'];
@@ -204,6 +206,8 @@ if (isset($_GET['act'])) {
                     $messager = 'Địa chỉ không được để trống';
                 } else if (!preg_match($regEmail, $email)) {
                     $messager = 'Email không đúng định dạng';
+                } else if (!preg_match($regPhone, $phone)) {
+                    $messager = 'Số điện thoại không đúng định dạng';
                 } else {
                     $sql = "INSERT into user(`ful_name`,`password`,`email`,`phone`,`address`,`role`) value ('{$full_name}','{$password}','{$email}','{$phone}','{$address}','{$role}')";
                     pdo_execute($sql);
@@ -238,6 +242,64 @@ if (isset($_GET['act'])) {
                 }
             }
             require('./forget.php');
+            break;
+        case 'changePW':
+            if (isset($_POST['submit'])) {
+                $user_id = $_SESSION['user']['user_id'];
+                $password = $_POST['password'];
+                $new_password = $_POST['new_password'];
+                $cf_password = $_POST['cf_password'];
+                if ($password != $_SESSION['user']['password']) {
+                    $messager = "Mật khẩu không đúng";
+                } else if ($new_password != $cf_password) {
+                    $messager = "Mật khẩu mới không giống nhau";
+                } else {
+                    $sql = "UPDATE user set `password` = '{$new_password}' where `user_id` = '{$user_id}'";
+                    pdo_execute($sql);
+                    $success = "Đổi thành công";
+                }
+            }
+            require('./changePassword.php');
+            break;
+        case 'update':
+            $sql = "SELECT * from user where user_id = '{$_SESSION['user']['user_id']}'";
+            $user = pdo_query_one($sql);
+         
+            require('./update.php');
+            break;
+        case 'fix_user':
+            if(isset($_POST['submit'])) {
+                $regEmail = "/([a-z0-9_]+|[a-z0-9_]+\.[a-z0-9_]+)@(([a-z0-9]|[a-z0-9]+\.[a-z0-9]+)+\.([a-z]{2,4}))/i";
+                $full_name = $_POST['full_name'];
+                $email = $_POST['email'];
+                $phone = $_POST['phone'];
+                $address = $_POST['address'];
+                $id = $_POST['id'];
+                if ($full_name == "") {
+                    $messager = 'Họ tên không được để trống';
+                } else if ($email == "") {
+                    $messager = 'Email không được để trống';
+                }  else if ($phone == "") {
+                    $messager = 'Số điện thoại không được để trống';
+                } else if ($address == "") {
+                    $messager = 'Địa chỉ không được để trống';
+                } else if (!preg_match($regEmail, $email)) {
+                    $messager = 'Email không đúng định dạng';
+                } else {
+                    $sql = "UPDATE user set
+                    `ful_name` = '{$full_name}',
+                    `email` = '{$email}',
+                    `phone` = '{$phone}',
+                    `address` = '{$address}' where `user_id` = '{$id}'";
+                    pdo_execute($sql);
+                    $success = "Đổi thành công";
+                }
+               
+           
+            }
+            // $sql = "SELECT * from user where user_id = '{$_SESSION['user']['user_id']}'";
+            // $user = pdo_query_one($sql);
+            require('./update.php');
             break;
     }
 }
