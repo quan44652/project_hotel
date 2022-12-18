@@ -24,16 +24,17 @@
         <tbody>
             <?php
             foreach ($listbook as $book) {
+                $date = abs(strtotime($book['end_date']) - strtotime($book['start_date'])) / (60 * 60 * 24) + 1;
                 if ($book['status'] == 0) {
             ?>
                     <tr>
                         <td><?php echo $book['booking_id'] ?></td>
                         <td><?php echo $book['ful_name'] ?></td>
-                        <td><?php echo $book['room_id'] ?></td>
+                        <td><?php echo $book['name'] ?></td>
                         <td><?php echo $book['start_date'] ?></td>
                         <td><?php echo $book['end_date'] ?></td>
                         <td><?php echo $book['phone'] ?></td>
-                        <td><?php echo $book['price'] ?> .VNĐ</td>
+                        <td><?php echo $book['price']*$date ?> .VNĐ</td>
                         <td><a href="../controller/index.php?act=checkin&id=<?php echo $book['id'] ?>"><button class="btn update">Xác nhận</button></a>|<a href="../controller/index.php?act=delete_booking&id=<?php echo $book['id'] ?>"><button class="btn delete">Xóa</button></a></td>
                     </tr>
                     </tr>

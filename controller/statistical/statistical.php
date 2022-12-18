@@ -19,8 +19,9 @@
             $tatol = 0;
             $stt = 0;
             foreach ($listbook as $book) {
+                $date = abs(strtotime($book['end_date']) - strtotime($book['start_date'])) / (60 * 60 * 24) + 1;
                 if ($book['status'] == 3) {
-                    $tatol += $book['price'];
+                    $tatol += $book['price']*$date;
                     $stt += 1;
             ?>
                     <tr>
@@ -29,7 +30,7 @@
                         <td><?php echo $book['name'] ?></td>
                         <td><?php echo $book['start_date'] ?></td>
                         <td><?php echo $book['end_date'] ?></td>
-                        <td><?php echo $book['price'] ?> .VNĐ</td>
+                        <td><?php echo $book['price']*$date ?> .VNĐ</td>
                     </tr>
                     </tr>
             <?php
